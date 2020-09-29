@@ -1,0 +1,23 @@
+header.header
+  h1 Services
+
+  = link_to "New Service", new_service_path, :class => "btn btn-primary"
+
+table.resource-list
+  thead
+    tr
+      th Name
+      th Unit
+      th Price
+      th.resource-list-actions
+
+  tbody
+    - @services.each do |service|
+      tr
+        td = link_to service.name, service
+        td = link_to service.unit, service
+        td = link_to service.price, service
+        td.resource-list-actions
+          .btn-group role="group"
+            = link_to "Edit", edit_service_path(service), :class => "btn btn-sm btn-outline-primary"
+            = link_to "Destroy", service, :data => {:confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-sm btn-outline-danger"

@@ -1,0 +1,6 @@
+header.header
+  h1 Editing service
+
+  = link_to "←", services_path, :class => "btn btn-secondary"
+
+== render "form", :service => @service

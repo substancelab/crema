@@ -1,0 +1,16 @@
+header.header
+  h1 = @service.to_s
+
+  = link_to "←", services_path, :class => "btn btn-secondary"
+  | &nbsp;
+  = link_to "Edit", edit_service_path(@service), :class => "btn btn-primary"
+
+p
+  strong Name:
+  = @service.name
+p
+  strong Unit:
+  = @service.unit
+p
+  strong Price:
+  = @service.price
