@@ -10,7 +10,6 @@
     "@rails/webpacker": "^5.2.1",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
-    "bootstrap": ">=4.5.2",
     "coffee-loader": "^1.0.0",
     "coffee-script": "^1.12.7",
     "css-loader": "^4.2.2",
