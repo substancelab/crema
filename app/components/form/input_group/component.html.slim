@@ -4,7 +4,7 @@ div class="mt-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:bo
   div class="mt-1 sm:mt-0 sm:col-span-2"
     - css_classes = @object.errors.include?(@attribute) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs"
     div class="#{css_classes}"
-      = @form.text_field @attribute, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+      = input_field
 
       - if @object.errors.include?(@attribute)
         div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
