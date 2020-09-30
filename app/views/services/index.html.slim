@@ -1,12 +1,12 @@
 - content_for(:page_title, "Services")
 
 - content_for(:page_header)
-  .md:flex.md:items-center.md:justify-between
+  .sm:flex.sm:items-center.sm:justify-between
     .flex-1.min-w-0
       h1.text-2xl.font-bold.leading-7.text-gray-900.sm:text-3xl.sm:leading-9.sm:truncate
         = content_for(:page_title)
 
-    .mt-4.flex.md:mt-0.md:ml-4
+    .mt-4.flex.sm:mt-0.sm:ml-4
       = render(PageHeadingActionLinkSecondaryComponent.new(:label => "Add new service", :url => new_service_path))
 
 .mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
