@@ -27,4 +27,20 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
             node -v
 
-      - ruby/bundle-install
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{checksum "yarn.lock"}}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3
+            yarn install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+            - ./node_modules/
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
