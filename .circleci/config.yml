@@ -17,7 +17,14 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+
       - run:
-          name: Which bundler?
-          command: bundle -v
+          name: "Install specified version of Node.js and npm"
+          command: |
+            export WANTED_NODE_VERSION=`grep nodejs .tool-versions | cut -d " " -f 2`
+            echo $WANTED_NODE_VERSION
+            curl -sSL "https://nodejs.org/dist/v${WANTED_NODE_VERSION}/node-v${WANTED_NODE_VERSION}-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v${WANTED_NODE_VERSION}-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+            node -v
+
       - ruby/bundle-install
