@@ -1,9 +1,12 @@
-header.header
-  h1 = @<%= singular_table_name %>.to_s
+- content_for(:page_title) { @<%= singular_table_name %> }
 
-  = link_to "←", <%= index_helper %>_path, :class => "btn btn-secondary"
-  | &nbsp;
-  = link_to "Edit", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-primary"
+- content_for(:page_header)
+  = render(PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+      :actions => [ \
+        PageHeading::ActionLinkComponent.new(:label => "Edit", :url => edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)) \
+      ] \
+    ))
 
 <% attributes.each do |attribute| -%>
 p

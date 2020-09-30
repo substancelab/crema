@@ -1,6 +1,10 @@
-header.header
-  h1 New <%= singular_table_name %>
+- content_for(:page_title, "Add new <%= singular_table_name %>")
 
-  = link_to "←", <%= index_helper %>_path, :class => "btn btn-secondary"
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+    ))
 
-== render "form", :<%= singular_table_name %> => @<%= singular_table_name %>
+.mt-6.max-w-8xl.mx-auto.px-4.sm:px-6.lg:px-8
+  == render "form", :<%= singular_table_name %> => @<%= singular_table_name %>

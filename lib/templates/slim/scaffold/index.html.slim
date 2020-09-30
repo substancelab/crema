@@ -1,23 +1,32 @@
-header.header
-  h1 <%= plural_table_name.titlecase %>
+- content_for(:page_title, "<%= plural_table_name.titlecase %>")
 
-  = link_to "New <%= human_name %>", new_<%= singular_table_name %>_path, :class => "btn btn-primary"
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+      :actions => [ \
+        PageHeading::ActionLinkSecondaryComponent.new(:label => "Add new <%= singular_table_name %>", :url => new_<%= singular_table_name %>_path) \
+      ] \
+    ))
 
-table.resource-list
-  thead
-    tr
+.mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
+  .flex.flex-col
+    .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+      .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+        .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+          table.min-w-full.divide-y.divide-gray-200
+            thead
+              tr
 <% attributes.each do |attribute| -%>
-      th <%= attribute.human_name %>
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider <%= attribute.human_name %>
 <% end -%>
-      th.resource-list-actions
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
 
-  tbody
-    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
-      tr
+            tbody.bg-white.divide-y.divide-gray-200
+              - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+                tr
 <% attributes.each do |attribute| -%>
-        td = link_to <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %>
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to <%= singular_table_name %>.<%= attribute %>, <%= singular_table_name %>
 <% end -%>
-        td.resource-list-actions
-          .btn-group role="group"
-            = link_to "Edit", edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :class => "btn btn-sm btn-outline-primary"
-            = link_to "Destroy", <%= singular_table_name %>, :data => {:confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-sm btn-outline-danger"
+                  td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
+                    = link_to "Edit", edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :class => "text-indigo-600 hover:text-indigo-900"
