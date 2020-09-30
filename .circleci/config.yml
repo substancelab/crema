@@ -44,3 +44,26 @@ jobs:
             - ./vendor/bundle
             - ./node_modules/
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Run tests
+          command: |
+            mkdir /tmp/test-results
+            rake
+          environment:
+            DATABASE_URL: "postgres://ubuntu:@localhost:5432/circle_test"
+            HOST: "test.host"
+
+      - run:
+          name: Verify assets
+          command: |
+            bundle exec rails assets:precompile
+          environment:
+            DATABASE_URL: "postgres://ubuntu:@localhost:5432/circle_test"
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
