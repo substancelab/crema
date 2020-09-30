@@ -17,7 +17,7 @@ RSpec.describe "/<%= name.underscore.pluralize %>", <%= type_metatag(:request) %
   # <%= class_name %>. As you add validations to <%= class_name %>, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryBot.attributes_for(<%= file_name %>)
   }
 
   let(:invalid_attributes) {
