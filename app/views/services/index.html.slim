@@ -11,21 +11,24 @@
         = link_to "Add new service", new_service_path, :class => "inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out"
 
 .mt-6.sm:mt-5
-  table.resource-list
-    thead
-      tr
-        th Name
-        th Unit
-        th Price
-        th.resource-list-actions
+  .flex.flex-col
+    .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+      .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+        .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+          table.min-w-full.divide-y.divide-gray-200
+            thead
+              tr
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Name
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Unit
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Price
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
 
-    tbody
-      - @services.each do |service|
-        tr
-          td = link_to service.name, service
-          td = link_to service.unit, service
-          td = link_to service.price, service
-          td.resource-list-actions
-            .btn-group role="group"
-              = link_to "Edit", edit_service_path(service), :class => "btn btn-sm btn-outline-primary"
-              = link_to "Destroy", service, :data => {:confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-sm btn-outline-danger"
+            tbody.bg-white.divide-y.divide-gray-200
+              - @services.each do |service|
+                tr
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900  = link_to service.name, service
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900  = link_to service.unit, service
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900  = link_to service.price, service
+                  td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
+                    .btn-group role="group"
+                      = link_to "Edit", edit_service_path(service), :class => "text-indigo-600 hover:text-indigo-900"
