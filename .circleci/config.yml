@@ -13,6 +13,7 @@ jobs:
       - image: circleci/postgres:12.4-ram
         environment:
         - POSTGRES_USER=ubuntu
+        - POSTGRES_PASSWORD=secret
 
     executor: ruby/default
     steps:
@@ -51,7 +52,7 @@ jobs:
             mkdir /tmp/test-results
             rake
           environment:
-            DATABASE_URL: "postgres://ubuntu:@localhost:5432/circle_test"
+            DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
             HOST: "test.host"
 
       - run:
@@ -59,7 +60,7 @@ jobs:
           command: |
             bundle exec rails assets:precompile
           environment:
-            DATABASE_URL: "postgres://ubuntu:@localhost:5432/circle_test"
+            DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
 
       # collect reports
       - store_test_results:
