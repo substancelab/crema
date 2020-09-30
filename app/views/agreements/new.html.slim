@@ -1,0 +1,10 @@
+- content_for(:page_title, "Add new agreement")
+
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+    ))
+
+.mt-6.max-w-8xl.mx-auto.px-4.sm:px-6.lg:px-8
+  == render "form", :agreement => @agreement

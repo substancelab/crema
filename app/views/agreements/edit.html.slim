@@ -1,0 +1,13 @@
+- content_for(:page_title) { @agreement }
+
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => "Editing agreement", \
+      :actions => [ \
+        PageHeading::DeleteActionComponent.new(:label => "Delete", :url => agreement_path(@agreement)),
+      ] \
+    ))
+
+.mt-6.max-w-8xl.mx-auto.px-4.sm:px-6.lg:px-8
+  == render "form", :agreement => @agreement
