@@ -1,6 +1,6 @@
 = form_for(agreement) do |form|
-  = render(Form::InputGroup::Component.new(:form => form, :attribute => :customer))
-  = render(Form::InputGroup::Component.new(:form => form, :attribute => :service))
+  = render(Form::InputGroup::SelectComponent.new(:form => form, :attribute => :customer_id, :collection => Customer.order(:company_name), :text_method => :company_name, :value_method => :id))
+  = render(Form::InputGroup::SelectComponent.new(:form => form, :attribute => :service_id, :collection => Service.order(:name), :text_method => :name, :value_method => :id))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :project_name))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :price))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :unit))
