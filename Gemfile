@@ -28,6 +28,7 @@ gem "devise"
 gem "simple_form"
 gem "slim-rails"
 gem "turbolinks"
+gem "view_component"
 gem "webpacker"
 
 # Assets management
