@@ -1,6 +1,7 @@
-header.header
-  h1 New service
-
-  = link_to "←", services_path, :class => "btn btn-secondary"
+- content_for(:page_header)
+  .md:flex.md:items-center.md:justify-between
+    .flex-1.min-w-0
+      h1.text-2xl.font-bold.leading-7.text-gray-900.sm:text-3xl.sm:leading-9.sm:truncate
+        | Add new service
 
 == render "form", :service => @service
