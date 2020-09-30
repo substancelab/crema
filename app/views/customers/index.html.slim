@@ -1,0 +1,38 @@
+- content_for(:page_title, "Customers")
+
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+      :actions => [ \
+        PageHeading::ActionLinkSecondaryComponent.new(:label => "Add new customer", :url => new_customer_path) \
+      ] \
+    ))
+
+.mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
+  .flex.flex-col
+    .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+      .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+        .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+          table.min-w-full.divide-y.divide-gray-200
+            thead
+              tr
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Company name
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Tax
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Tax region
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Invoice email
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Address
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Phone
+                th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+
+            tbody.bg-white.divide-y.divide-gray-200
+              - @customers.each do |customer|
+                tr
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.company_name, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.tax_id, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.tax_region, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.invoice_email, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.address, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to customer.phone, customer
+                  td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
+                    = link_to "Edit", edit_customer_path(customer), :class => "text-indigo-600 hover:text-indigo-900"

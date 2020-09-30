@@ -1,0 +1,28 @@
+- content_for(:page_title) { @customer }
+
+- content_for(:page_header)
+  = render(PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+      :actions => [ \
+        PageHeading::ActionLinkComponent.new(:label => "Edit", :url => edit_customer_path(@customer)) \
+      ] \
+    ))
+
+p
+  strong Company name:
+  = @customer.company_name
+p
+  strong Tax:
+  = @customer.tax_id
+p
+  strong Tax region:
+  = @customer.tax_region
+p
+  strong Invoice email:
+  = @customer.invoice_email
+p
+  strong Address:
+  = @customer.address
+p
+  strong Phone:
+  = @customer.phone
