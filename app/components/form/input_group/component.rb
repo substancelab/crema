@@ -63,7 +63,7 @@ module Form
         classes + ["relative"]
       end
 
-      # Returns the HTML to use for the actual input field element.
+      # Returns the HTML to use for the label element
       def label
         @form.label(
           @attribute,
