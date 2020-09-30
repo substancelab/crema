@@ -3,7 +3,7 @@
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :tax_region))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :tax_id))
   = render(Form::InputGroup::EmailComponent.new(:form => form, :attribute => :invoice_email))
-  = render(Form::InputGroup::Component.new(:form => form, :attribute => :phone))
+  = render(Form::InputGroup::PhoneComponent.new(:form => form, :attribute => :phone))
   = render(Form::InputGroup::TextareaComponent.new(:form => form, :attribute => :address))
 
   div class="mt-8 border-t border-gray-200 pt-5"
