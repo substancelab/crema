@@ -1,0 +1,46 @@
+<%= form_for(service) do |form| %>
+  <div>
+    <div>
+      <div class="mt-6 sm:mt-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <%= form.label :name, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= form.text_field :name, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <%= form.label :price, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= form.number_field :price, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <%= form.label :unit, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= form.select(
+                :unit,
+                options_for_select(["Per hour", "Per day", "Per iteration"]),
+                {},
+                {:class => "block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"}
+              ) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 border-t border-gray-200 pt-5">
+    <div class="flex justify-end">
+      <span class="ml-3 inline-flex rounded-md shadow-sm">
+        <%= form.submit "Save", :class => "inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+      </span>
+    </div>
+  </div>
+<% end %>
