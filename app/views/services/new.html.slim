@@ -1,8 +1,10 @@
+- content_for(:page_title, "Add new service")
+
 - content_for(:page_header)
-  .sm:flex.sm:items-center.sm:justify-between
-    .flex-1.min-w-0
-      h1.text-2xl.font-bold.leading-7.text-gray-900.sm:text-3xl.sm:leading-9.sm:truncate
-        | Add new service
+  = render( \
+    PageHeadingComponent.new( \
+      :title => content_for(:page_title), \
+    ))
 
 .mt-6.max-w-8xl.mx-auto.px-4.sm:px-6.lg:px-8
   == render "form", :service => @service
