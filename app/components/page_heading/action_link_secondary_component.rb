@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PageHeadingActionLinkSecondaryComponent < ViewComponent::Base
+class PageHeading::ActionLinkSecondaryComponent < ViewComponent::Base
   def initialize(label:, url:)
     super
     @label = label

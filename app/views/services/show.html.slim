@@ -21,4 +21,4 @@
           = @service.unit
 
     div class="mt-5 flex sm:mt-0 sm:ml-4"
-      = render(PageHeadingActionLinkComponent.new(:label => "Edit", :url => edit_service_path(@service)))
+      = render(PageHeading::ActionLinkComponent.new(:label => "Edit", :url => edit_service_path(@service)))

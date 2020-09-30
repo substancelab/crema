@@ -5,7 +5,7 @@
     PageHeadingComponent.new( \
       :title => "Editing service", \
       :actions => [ \
-        PageHeadingDeleteActionComponent.new(:label => "Delete", :url => service_path(@service)),
+        PageHeading::DeleteActionComponent.new(:label => "Delete", :url => service_path(@service)),
       ] \
     ))
 

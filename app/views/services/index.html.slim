@@ -5,7 +5,7 @@
     PageHeadingComponent.new( \
       :title => content_for(:page_title), \
       :actions => [ \
-        PageHeadingActionLinkSecondaryComponent.new(:label => "Add new service", :url => new_service_path) \
+        PageHeading::ActionLinkSecondaryComponent.new(:label => "Add new service", :url => new_service_path) \
       ] \
     ))
 

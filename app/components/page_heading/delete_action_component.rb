@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PageHeadingDeleteActionComponent < ViewComponent::Base
+class PageHeading::DeleteActionComponent < ViewComponent::Base
   def initialize(label:, url:)
     super
     @label = label
