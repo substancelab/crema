@@ -21,6 +21,7 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+/pids/*
 
 .byebug_history
 config/database.yml
