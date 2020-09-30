@@ -1,14 +1,38 @@
-= simple_form_for(customer) do |f|
-  = f.error_notification
-  = f.error_notification :message => f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+= form_for(customer) do |form|
+  div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+    = form.label :company_name, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
+    div class="mt-1 sm:mt-0 sm:col-span-2"
+      - css_classes = form.object.errors.include?(:company_name) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs"
+      div class="#{css_classes}"
+        = form.text_field :company_name, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+         - if form.object.errors.include?(:company_name)
+          div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+            svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"
+              path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"
 
-  .form-inputs
-    = f.input :company_name, :autofocus => true
-    = f.input :tax_id
-    = f.input :tax_region
-    = f.input :invoice_email
-    = f.input :address
-    = f.input :phone
+      - if form.object.errors.include?(:company_name)
+        - form.object.errors[:company_name].each do |error|
+          p class="mt-2 text-sm text-red-600" = "↑ #{error.upcase_first}"
 
-  .form-actions
-    = f.button :submit, :class => "btn btn-primary"
+  div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+    = form.label :tax_region, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"
+    div class="mt-1 sm:mt-0 sm:col-span-2"
+      - css_classes = form.object.errors.include?(:tax_region) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs"
+      div class="#{css_classes}"
+        = form.text_field :tax_region, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+         - if form.object.errors.include?(:tax_region)
+          div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+            svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"
+              path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"
+
+      - if form.object.errors.include?(:tax_region)
+        - form.object.errors[:tax_region].each do |error|
+          p class="mt-2 text-sm text-red-600" = "↑ #{error.upcase_first}"
+
+  div class="mt-8 border-t border-gray-200 pt-5"
+    div class="flex justify-end"
+      span class="ml-3 inline-flex rounded-md shadow-sm"
+        = link_to "Cancel", customers_path, :class => "py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
+
+      span class="ml-3 inline-flex rounded-md shadow-sm"
+        = form.submit "Save", :class => "inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
