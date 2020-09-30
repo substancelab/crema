@@ -6,6 +6,14 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.1-stretch-node
+        environment:
+        - PG_HOST=localhost
+        - PG_USER=ubuntu
+
+      - image: circleci/postgres:12.4-ram
+        environment:
+        - POSTGRES_USER=ubuntu
+
     executor: ruby/default
     steps:
       - checkout
