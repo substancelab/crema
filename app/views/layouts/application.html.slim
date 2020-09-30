@@ -20,7 +20,6 @@ html lang="#{I18n.locale}"
               = yield(:page_header)
 
         main
-          .max-w-7xl.mx-auto.sm:px-6.lg:px-8
-            = yield
+          = yield
 
     = yield(:append_javascript)
