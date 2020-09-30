@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PageHeadingComponent < ViewComponent::Base
+class PageHeading::Component < ViewComponent::Base
   def initialize(title:, actions: [])
     super
     @title = title

@@ -2,7 +2,7 @@
 
 - content_for(:page_header)
   = render( \
-    PageHeadingComponent.new( \
+    PageHeading::Component.new( \
       :title => content_for(:page_title), \
       :actions => [ \
         PageHeading::ActionLinkSecondaryComponent.new(:label => "Add new service", :url => new_service_path) \

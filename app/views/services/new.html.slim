@@ -2,7 +2,7 @@
 
 - content_for(:page_header)
   = render( \
-    PageHeadingComponent.new( \
+    PageHeading::Component.new( \
       :title => content_for(:page_title), \
     ))
 
