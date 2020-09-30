@@ -2,12 +2,10 @@
 
 module Form
   module InputGroup
-    class TextareaComponent < ViewComponent::Base
-      def initialize(form:, attribute:)
-        super
-        @attribute = attribute
-        @form = form
-        @object = form.object
+    class TextareaComponent < Form::InputGroup::Component
+      # Returns the name of the method used to generate HTML for the input field
+      def input_field_type
+        :text_area
       end
     end
   end
