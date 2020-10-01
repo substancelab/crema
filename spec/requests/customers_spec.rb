@@ -25,6 +25,10 @@ RSpec.describe "/customers", :type => :request do
     {:company_name => ""}
   }
 
+  before do
+    sign_in_as("tester@substancelab.com")
+  end
+
   describe "GET /index" do
     it "renders a successful response" do
       Customer.create! valid_attributes

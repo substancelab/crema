@@ -19,6 +19,10 @@ RSpec.describe "/services", :type => :request do
     }
   }
 
+  before do
+    sign_in_as("tester@substancelab.com")
+  end
+
   describe "GET /index" do
     it "renders a successful response" do
       Service.create! valid_attributes

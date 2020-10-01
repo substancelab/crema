@@ -21,6 +21,10 @@ RSpec.describe "/agreements", :type => :request do
     }
   }
 
+  before do
+    sign_in_as("tester@substancelab.com")
+  end
+
   describe "GET /index" do
     it "renders a successful response" do
       Agreement.create!(valid_attributes)
