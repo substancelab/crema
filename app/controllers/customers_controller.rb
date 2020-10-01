@@ -66,6 +66,7 @@ class CustomersController < ApplicationController
       permit(
         :address,
         :company_name,
+        :economic_debtor_number,
         :invoice_email,
         :phone,
         :tax_id,

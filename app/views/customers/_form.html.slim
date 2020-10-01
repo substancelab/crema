@@ -5,6 +5,7 @@
   = render(Form::InputGroup::EmailComponent.new(:form => form, :attribute => :invoice_email))
   = render(Form::InputGroup::PhoneComponent.new(:form => form, :attribute => :phone))
   = render(Form::InputGroup::TextareaComponent.new(:form => form, :attribute => :address))
+  = render(Form::InputGroup::Component.new(:form => form, :attribute => :economic_debtor_number))
 
   div class="mt-8 border-t border-gray-200 pt-5"
     div class="flex justify-end"
