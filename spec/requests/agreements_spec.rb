@@ -11,6 +11,7 @@ RSpec.describe "/agreements", :type => :request do
       :customer_id => customer.to_param,
       :project_name => "Google 2",
       :service_id => service.to_param,
+      :state => Agreement::STATES.sample,
     }
   }
 

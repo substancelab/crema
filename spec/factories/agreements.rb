@@ -8,7 +8,7 @@ FactoryBot.define do
     price { 9.99 }
     unit { "hour" }
     ends_on { "2020-12-31" }
-    state { "active" }
+    state { Agreement::STATES.sample }
     purchase_order_number { "" }
   end
 end

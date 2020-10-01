@@ -5,7 +5,7 @@
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :price))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :unit))
   = render(Form::InputGroup::DateComponent.new(:form => form, :attribute => :ends_on))
-  = render(Form::InputGroup::Component.new(:form => form, :attribute => :state))
+  = render(Form::InputGroup::SelectComponent.new(:form => form, :attribute => :state, :collection => Agreement::STATES))
   = render(Form::InputGroup::Component.new(:form => form, :attribute => :purchase_order_number))
 
   div class="mt-8 border-t border-gray-200 pt-5"
