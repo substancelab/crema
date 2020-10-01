@@ -63,6 +63,13 @@ class CustomersController < ApplicationController
   def customer_params
     params.
       require(:customer).
-      permit(:company_name, :tax_id, :tax_region, :invoice_email, :address, :phone)
+      permit(
+        :address,
+        :company_name,
+        :invoice_email,
+        :phone,
+        :tax_id,
+        :tax_region
+      )
   end
 end
