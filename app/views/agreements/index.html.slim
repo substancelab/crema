@@ -11,28 +11,30 @@
 
 .mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
   - Agreement::STATES.each do |state|
-    .flex.flex-col
-      .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
-        .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
-          div class="mt-8 mb-4"
-            h2 class="text-lg leading-6 font-medium text-gray-900" = state.upcase_first
+    - agreements = @agreements.fetch(state, [])
+    - if agreements.any?
+      .flex.flex-col
+        .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+          .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+            div class="mt-8 mb-4"
+              h2 class="text-lg leading-6 font-medium text-gray-900" = state.upcase_first
 
-          .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
-            table.min-w-full.divide-y.divide-gray-200
-              thead
-                tr
-                  th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Project name
-                  th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Service
-                  th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Customer
-                  th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Ends at
-                  th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
-
-              tbody.bg-white.divide-y.divide-gray-200
-                - @agreements.fetch(state, []).each do |agreement|
+            .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+              table.min-w-full.divide-y.divide-gray-200
+                thead
                   tr
-                    td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.project_name, agreement
-                    td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.service, agreement
-                    td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.customer, agreement
-                    td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.ends_on, agreement
-                    td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
-                      = link_to "Edit", edit_agreement_path(agreement), :class => "text-indigo-600 hover:text-indigo-900"
+                    th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Project name
+                    th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Service
+                    th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Customer
+                    th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider Ends at
+                    th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+
+                tbody.bg-white.divide-y.divide-gray-200
+                  - agreements.each do |agreement|
+                    tr
+                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.project_name, agreement
+                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.service, agreement
+                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.customer, agreement
+                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.ends_on, agreement
+                      td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
+                        = link_to "Edit", edit_agreement_path(agreement), :class => "text-indigo-600 hover:text-indigo-900"
