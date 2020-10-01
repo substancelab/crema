@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_072842) do
+ActiveRecord::Schema.define(version: 2020_10_01_073818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,20 +31,20 @@ ActiveRecord::Schema.define(version: 2020_10_01_072842) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "company_name"
-    t.string "tax_id", default: ""
-    t.string "tax_region", default: ""
-    t.string "invoice_email", default: ""
-    t.text "address", default: ""
-    t.string "phone", default: ""
+    t.string "company_name", null: false
+    t.string "tax_id", default: "", null: false
+    t.string "tax_region", default: "", null: false
+    t.string "invoice_email", default: "", null: false
+    t.text "address", default: "", null: false
+    t.string "phone", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.string "unit"
-    t.decimal "price"
+    t.string "name", null: false
+    t.string "unit", null: false
+    t.decimal "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
