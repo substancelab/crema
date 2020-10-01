@@ -12,6 +12,10 @@
 import Rails from "rails-ujs";
 Rails.start();
 
+// Start Turbolinks
+var Turbolinks = require("turbolinks")
+Turbolinks.start()
+
 // Set up Stimulus
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
