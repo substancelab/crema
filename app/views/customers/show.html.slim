@@ -8,21 +8,22 @@
       ] \
     ))
 
-p
-  strong Company name:
-  = @customer.company_name
-p
-  strong Tax:
-  = @customer.tax_id
-p
-  strong Tax region:
-  = @customer.tax_region
-p
-  strong Invoice email:
-  = @customer.invoice_email
-p
-  strong Address:
-  = @customer.address
-p
-  strong Phone:
-  = @customer.phone
+.mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
+  p
+    strong Company name:
+    = @customer.company_name
+  p
+    strong Tax:
+    = @customer.tax_id
+  p
+    strong Tax region:
+    = @customer.tax_region
+  p
+    strong Invoice email:
+    = @customer.invoice_email
+  p
+    strong Address:
+    = @customer.address
+  p
+    strong Phone:
+    = @customer.phone
