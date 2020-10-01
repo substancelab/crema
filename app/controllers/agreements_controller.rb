@@ -28,7 +28,9 @@ class AgreementsController < ApplicationController
 
   # GET /agreements
   def index
-    @agreements = Agreement.all
+    @agreements = Agreement.
+      order(:project_name).
+      group_by(&:state)
   end
 
   # GET /agreements/new
