@@ -21,9 +21,6 @@ gem "puma"
 
 gem "rails-i18n"
 
-# Authentication
-gem "devise"
-
 # Frontend
 gem "simple_form"
 gem "slim-rails"
