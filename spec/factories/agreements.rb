@@ -7,7 +7,7 @@ FactoryBot.define do
     project_name { "Awesome Project" }
     price { 9.99 }
     unit { "hour" }
-    ends_at { "2020-09-30 22:00:34" }
+    ends_on { "2020-12-31" }
     state { "active" }
     purchase_order_number { "" }
   end

@@ -63,6 +63,6 @@ class AgreementsController < ApplicationController
   def agreement_params
     params.
       require(:agreement).
-      permit(:customer_id, :service_id, :project_name, :price, :unit, :ends_at, :state, :purchase_order_number)
+      permit(:customer_id, :service_id, :project_name, :price, :unit, :ends_on, :state, :purchase_order_number)
   end
 end
