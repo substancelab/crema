@@ -21,6 +21,9 @@ gem "puma"
 
 gem "rails-i18n"
 
+# Authentication
+gem "omniauth-google-oauth2"
+
 # Frontend
 gem "simple_form"
 gem "slim-rails"

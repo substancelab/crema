@@ -17,6 +17,8 @@
 The following environment variables are expected to be configured by the environment, not via .env files:
 
 * `DOMAIN`: Domain name that the application is being served at.
+* `GOOGLE_OAUTH_CLIENT_ID`:
+* `GOOGLE_OAUTH_SECRET`:
 * `PORT`: The port Puma listens on (defaults to `3000`).
 * `RAILS_ENV`: The environment to run the application in (defaults to `development`).
 * `RAILS_LOG_TO_STDOUT`: Set this to anything to log to STDOUT instead of a file.
