@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_071004) do
+ActiveRecord::Schema.define(version: 2020_10_01_072842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 2020_10_01_071004) do
   create_table "agreements", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "service_id", null: false
-    t.string "project_name"
+    t.string "project_name", null: false
     t.decimal "price"
-    t.string "unit"
+    t.string "unit", default: "", null: false
     t.date "ends_on"
-    t.string "state"
-    t.string "purchase_order_number"
+    t.string "state", default: "", null: false
+    t.string "purchase_order_number", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_agreements_on_customer_id"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2020_10_01_071004) do
 
   create_table "customers", force: :cascade do |t|
     t.string "company_name"
-    t.string "tax_id"
-    t.string "tax_region"
-    t.string "invoice_email"
-    t.text "address"
-    t.string "phone"
+    t.string "tax_id", default: ""
+    t.string "tax_region", default: ""
+    t.string "invoice_email", default: ""
+    t.text "address", default: ""
+    t.string "phone", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
