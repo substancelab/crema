@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class EconomicClient
+  # See https://secure.e-conomic.com/sales/setup/payment-terms
+  PAYMENT_TERMS::NET_15 = 3
+
   attr_reader :economic
 
   def connect
@@ -14,31 +17,20 @@ class EconomicClient
     connect
     debtor = session.debtors.build
 
+    debtor.ci_number = customer.tax_id
+    debtor.email = customer.invoice_email
+    debtor.name = customer.company_name
+
+    debtor.is_accessible = true
+    debtor.currency_handle = currency_handle(customer)
+
     debtor.number = session.debtors.next_available_number
 
-    debtor_group_number = {
-      "DK" => 1,
-      "EU" => 2,
-      "Outside EU" => 3,
-    }.fetch(customer.tax_region)
+    debtor.debtor_group_handle = debtor_group_handle(customer)
 
-    debtor.debtor_group_handle = {:number => debtor_group_number}
-    debtor.ci_number = customer.tax_id
-    debtor.is_accessible = true
-    debtor.name = customer.company_name
-    debtor.email = customer.invoice_email
+    debtor.vat_zone = vat_zone(customer)
 
-    debtor.vat_zone = "HomeCountry" # HomeCountry, EU, Abroad
-    debtor.currency_handle = {:code => "DKK"}
-
-    # Forfaldsdato
-    # Lb. md. 30 dage
-    # Løbende uge med start mandag
-    # Løbende uge med start mandag
-    # 3: Netto 15 dage
-    # Netto 30 dage
-    debtor.term_of_payment_handle = {:id => 3}
-    # debtor.layout_handle = {:id => 16}
+    debtor.term_of_payment_handle = payment_terms_handle(customer)
 
     debtor.save
   end
@@ -51,5 +43,30 @@ class EconomicClient
     connect
     debtor = session.debtors.find(:number => customer.economic_debtor_number)
     debtor.invoices || []
+  end
+
+  private
+
+  def currency_handle(_customer)
+    {:code => "DKK"}
+  end
+
+  def debtor_group_handle(customer)
+    debtor_group_number = {
+      "DK" => 1,
+      "EU" => 2,
+      "Outside EU" => 3,
+    }.fetch(customer.tax_region)
+
+    {:number => debtor_group_number}
+  end
+
+  def payment_terms_handle(_customer)
+    {:id => PAYMENT_TERMS::NET_15}
+  end
+
+  # HomeCountry, EU, Abroad
+  def vat_zone(_customer)
+    "HomeCountry"
   end
 end
