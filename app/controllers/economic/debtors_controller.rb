@@ -8,7 +8,7 @@ module Economic
       debtor = economic.create_debtor(customer)
 
       if debtor
-        customer.update_column(:economic_debtor_number, debtor[:number])
+        customer.update_column(:economic_debtor_number, debtor.number)
       end
 
       redirect_to(customer)
