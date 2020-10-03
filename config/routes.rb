@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   resources :services
   resource :session, :only => [:destroy]
 
+  namespace :economic do
+    resources :debtors, :only => [:create]
+  end
+
   root :to => "dashboards#show"
 end
