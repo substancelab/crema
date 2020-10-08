@@ -6,6 +6,7 @@
 * PostgreSQL 11.x (and `libpq-dev` or equivalent)
 * Node 11.x <https://nodejs.org/en/download/package-manager/>
 * Yarn 1.x <https://yarnpkg.com/en/docs/install#linux-tab>
+* Redis (for background jobs)
 
 ## Set up the application
 
