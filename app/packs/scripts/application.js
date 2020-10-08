@@ -16,13 +16,18 @@ Rails.start();
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
 
+// Set up ActionCable
+import consumer from "./channels/consumer"
+
 // Set up Stimulus
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
+import StimulusReflex from "stimulus_reflex"
 
 const application = Application.start()
 const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
+StimulusReflex.initialize(application, { consumer })
 
 // Import and register all TailwindCSS Components
 import { Dropdown } from "tailwindcss-stimulus-components"
