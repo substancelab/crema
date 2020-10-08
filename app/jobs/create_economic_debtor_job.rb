@@ -5,9 +5,21 @@ class CreateEconomicDebtorJob < ApplicationJob
 
   def perform(customer_id)
     customer = Customer.find(customer_id)
-    economic = EconomicClient.new
+    debtor = create_debtor(customer)
+    set_debtor_association(customer, debtor)
+  end
 
-    debtor = economic.create_debtor(customer)
+  private
+
+  def create_debtor(customer)
+    economic.create_debtor(customer)
+  end
+
+  def economic
+    @economic ||= EconomicClient.new
+  end
+
+  def set_debtor_association(customer, debtor)
     return unless debtor
 
     customer.update_column(:economic_debtor_number, debtor.number)
