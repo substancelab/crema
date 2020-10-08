@@ -142,4 +142,7 @@ Rails.application.configure do
   #   ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context =
   #   ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Use a real queuing backend for Active Job
+  config.active_job.queue_adapter = :sidekiq
 end

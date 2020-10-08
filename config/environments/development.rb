@@ -85,4 +85,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   Slim::Engine.set_options :pretty => true
+
+  # Use a real queuing backend for Active Job
+  config.active_job.queue_adapter = :sidekiq
 end
