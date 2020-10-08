@@ -4,13 +4,7 @@ module Economic
   class DebtorsController < ApplicationController
     def create
       customer = Customer.find(params[:customer_id])
-      economic = EconomicClient.new
-      debtor = economic.create_debtor(customer)
-
-      if debtor
-        customer.update_column(:economic_debtor_number, debtor.number)
-      end
-
+      CreateEconomicDebtorJob.perform_later(customer.id)
       redirect_to(customer)
     end
   end
