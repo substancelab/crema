@@ -7,7 +7,9 @@ html lang="#{I18n.locale}"
 
     title = yield(:page_title)
 
+    = action_cable_meta_tag
     = csrf_meta_tags
+
     = stylesheet_pack_tag "styles/application"
     = javascript_pack_tag "scripts/application"
 
