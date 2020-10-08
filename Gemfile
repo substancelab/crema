@@ -24,6 +24,9 @@ gem "rails-i18n"
 # Authentication
 gem "omniauth-google-oauth2"
 
+# Background processing
+gem "sidekiq"
+
 # Frontend
 gem "simple_form"
 gem "slim-rails"
