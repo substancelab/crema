@@ -15,6 +15,7 @@ gem "bootsnap", ">= 1.4.2", :require => false
 
 # Database
 gem "postgresql"
+gem "redis-session-store"
 
 # App serving
 gem "puma"
