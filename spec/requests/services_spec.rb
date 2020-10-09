@@ -7,7 +7,7 @@ RSpec.describe "/services", :type => :request do
     {
       :name => "Ad Hoc Work",
       :price => 123,
-      :unit => "hour",
+      :unit => "per_hour",
     }
   }
 
