@@ -60,6 +60,7 @@ class CustomersController < ApplicationController
   end
 
   # Only allow a trusted parameter "white list" through.
+  # rubocop:disable Metrics/MethodLength
   def customer_params
     params.
       require(:customer).
@@ -73,4 +74,5 @@ class CustomersController < ApplicationController
         :tax_region
       )
   end
+  # rubocop:enable Metrics/MethodLength
 end
