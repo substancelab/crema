@@ -151,8 +151,8 @@ Rails.application.configure do
     :redis_cache_store,
     {
       :driver => :hiredis,
-      :url => ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
-    }
+      :url => ENV.fetch("REDIS_URL", "redis://localhost:6379/1"),
+    },
   ]
   config.session_store :redis_session_store, {
     :key => Rails.application.credentials.app_session_key,
@@ -162,6 +162,6 @@ Rails.application.configure do
       :key_prefix => "app:session:",
       :ttl => 1.year,
       :url => ENV.fetch("HEROKU_REDIS_MAROON_URL"),
-    }
+    },
   }
 end

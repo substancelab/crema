@@ -6,8 +6,8 @@ class Service < ApplicationRecord
     "per_day",
     "per_week",
     "per_month",
-    "per_unit"
-  ]
+    "per_unit",
+  ].freeze
 
   validates :name, :presence => true
   validates :price,
