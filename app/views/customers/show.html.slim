@@ -1,4 +1,4 @@
-- content_for(:page_title) { @customer }
+- content_for(:page_title) { @customer.company_name }
 
 - content_for(:page_header)
   = render(PageHeading::Component.new( \
@@ -9,9 +9,6 @@
     ))
 
 .mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
-  p
-    strong Company name:
-    = @customer.company_name
   p
     strong Tax:
     = @customer.tax_id
