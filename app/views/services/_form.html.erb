@@ -47,10 +47,9 @@
         </div>
 
         <%= render(
-          Form::InputGroup::SelectComponent.new(
+          Form::UnitSelectorComponent.new(
             :form => form,
             :attribute => :unit,
-            :collection => Service::UNITS
           )
         ) %>
       </div>
