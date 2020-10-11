@@ -13,7 +13,7 @@ module Form
     private
 
     def collection
-      Service::UNITS
+      Service::UNITS.sort
     end
   end
 end
