@@ -4,7 +4,7 @@
   = render(PageHeading::Component.new( \
       :title => content_for(:page_title), \
       :actions => [ \
-        PageHeading::ActionLinkComponent.new(:label => "Add agreement", :url => new_agreement_path(:agreement => {:customer_id => @customer})),
+        PageHeading::ActionLinkComponent.new(:label => "Add agreement", :url => new_agreement_path(:customer_id => @customer)),
         PageHeading::ActionLinkComponent.new(:label => "Edit", :url => edit_customer_path(@customer)) \
       ] \
     ))

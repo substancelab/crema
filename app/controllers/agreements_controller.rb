@@ -35,7 +35,7 @@ class AgreementsController < ApplicationController
 
   # GET /agreements/new
   def new
-    @agreement = Agreement.new(agreement_params)
+    @agreement = Agreement.new(params.permit(:customer_id))
   end
 
   # GET /agreements/1
