@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
     "Outside EU",
   ].freeze
 
+  has_many :agreements, :dependent => :destroy
+
   validates :company_name, :presence => true
   validates :tax_region, :presence => true, :inclusion => TAX_REGIONS
 

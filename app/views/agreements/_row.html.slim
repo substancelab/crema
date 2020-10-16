@@ -1,0 +1,7 @@
+tr
+  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.project_name, agreement
+  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.service, agreement
+  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.customer, agreement
+  td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.ends_on, agreement
+  td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
+    = link_to "Edit", edit_agreement_path(agreement), :class => "text-green-600 hover:text-green-900"

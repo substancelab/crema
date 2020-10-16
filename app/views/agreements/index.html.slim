@@ -30,11 +30,4 @@
                     th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
 
                 tbody.bg-white.divide-y.divide-gray-200
-                  - agreements.each do |agreement|
-                    tr
-                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.project_name, agreement
-                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.service, agreement
-                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.customer, agreement
-                      td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = link_to agreement.ends_on, agreement
-                      td.px-6.py-4.whitespace-no-wrap.text-right.text-sm.leading-5.font-medium
-                        = link_to "Edit", edit_agreement_path(agreement), :class => "text-green-600 hover:text-green-900"
+                  = render :collection => agreements, :partial => "agreements/row", :as => :agreement
