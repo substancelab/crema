@@ -17,6 +17,12 @@ class Service < ApplicationRecord
             :inclusion => UNITS,
             :presence => true
 
+  class << self
+    def default_order
+      order(:name)
+    end
+  end
+
   def to_s
     name
   end

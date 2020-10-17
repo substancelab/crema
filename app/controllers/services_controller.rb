@@ -28,7 +28,7 @@ class ServicesController < ApplicationController
 
   # GET /services
   def index
-    @services = Service.all
+    @services = Service.default_order
   end
 
   # GET /services/new

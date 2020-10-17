@@ -28,7 +28,7 @@ class CustomersController < ApplicationController
 
   # GET /customers
   def index
-    @customers = Customer.all
+    @customers = Customer.order(:company_name)
   end
 
   # GET /customers/new
@@ -39,6 +39,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   def show
     @customer = find_customer
+    @agreements = @customer.agreements.default_order
   end
 
   # PATCH/PUT /customers/1

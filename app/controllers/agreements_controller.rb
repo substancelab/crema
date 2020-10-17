@@ -29,7 +29,7 @@ class AgreementsController < ApplicationController
   # GET /agreements
   def index
     @agreements = Agreement.
-      order(:project_name).
+      default_order.
       group_by(&:state)
   end
 

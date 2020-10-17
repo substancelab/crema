@@ -12,6 +12,12 @@ class Agreement < ApplicationRecord
   validates :project_name, :presence => true
   validates :state, :inclusion => {:in => STATES}
 
+  class << self
+    def default_order
+      order(:project_name)
+    end
+  end
+
   def to_s
     project_name
   end
