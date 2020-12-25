@@ -3,6 +3,7 @@ inherit_from: .rubocop_todo.yml
 require:
   - 'rubocop-performance'
   - 'rubocop-rails'
+  - 'rubocop-rspec'
 
 AllCops:
   DisplayCopNames: true
@@ -79,6 +80,12 @@ Naming/FileName:
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
 
 Style/BlockDelimiters:
   Enabled: false
