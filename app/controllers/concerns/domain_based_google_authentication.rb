@@ -26,7 +26,7 @@ module DomainBasedGoogleAuthentication
       "Checking authorization: #{session[:user_email].inspect}"
     }
 
-    return unless session[:user_email].present?
+    return if session[:user_email].blank?
 
     email = session[:user_email]
     email.end_with?(*authorized_domains)

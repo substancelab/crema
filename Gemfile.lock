@@ -284,6 +284,10 @@ GEM
     rubocop-performance (1.9.1)
       rubocop (>= 0.90.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.9.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 0.90.0, < 2.0)
     ruby-progressbar (1.10.1)
     rubyzip (2.0.0)
     savon (2.12.1)
@@ -390,6 +394,7 @@ DEPENDENCIES
   rspec-rails (>= 4.0.0.beta2)
   rubocop
   rubocop-performance
+  rubocop-rails
   selenium-webdriver
   shoulda-matchers
   sidekiq

@@ -22,6 +22,6 @@ class CreateEconomicDebtorJob < ApplicationJob
   def set_debtor_association(customer, debtor)
     return unless debtor
 
-    customer.update_column(:economic_debtor_number, debtor.number)
+    customer.update(:economic_debtor_number => debtor.number)
   end
 end

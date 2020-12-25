@@ -58,6 +58,7 @@ group :development, :test do
 
   gem "rubocop"
   gem "rubocop-performance"
+  gem "rubocop-rails", :require => false
 end
 
 group :development do
