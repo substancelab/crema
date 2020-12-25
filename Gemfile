@@ -11,7 +11,7 @@ end
 
 gem "rails"
 
-gem "bootsnap", ">= 1.4.2", :require => false
+gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
 gem "postgresql"
@@ -47,7 +47,7 @@ group :development, :test do
   # console
   gem "byebug", :platforms => [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem "capybara"
+  gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
 
   gem "dotenv-rails"
@@ -64,7 +64,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
   gem "listen"
-  gem "web-console"
+  gem "web-console", ">= 4.1.0"
 
   # Run stuff automatically
   gem "guard"
@@ -72,10 +72,15 @@ group :development do
   gem "guard-rspec"
   gem "guard-rubocop"
 
+  # Display performance information such as SQL time and flame graphs for each
+  # request in your browser. Can be configured to work on production as well
+  # see:
+  # https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem "rack-mini-profiler"
+
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
   gem "spring"
-  gem "spring-watcher-listen"
 end
 
 group :test do
