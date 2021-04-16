@@ -40,7 +40,9 @@ gem "webpacker"
 gem "uglifier"
 
 # Third-party services
-gem "rconomic"
+gem "rconomic",
+  :branch => "master",
+  :github => "substancelab/rconomic"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger

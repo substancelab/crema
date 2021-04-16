@@ -25,6 +25,16 @@ class EconomicClient
     EconomicClient::CreateDebtor.new(self).call(customer)
   end
 
+  # Creates an Invoice in E-conomic for customer. Returns the created - and
+  # unbooked - Economic::CurrentInvoice object.
+  def create_invoice(agreement, lines, reference: nil)
+    EconomicClient::CreateInvoice.new(self).call(
+      agreement,
+      lines,
+      :reference => reference
+    )
+  end
+
   def session
     @session ||= Economic::Session.new
   end
