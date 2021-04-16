@@ -54,9 +54,11 @@ class EconomicClient
     end
 
     def build_invoice_line(line, agreement)
+      product_number = line[:economic_product_number] || agreement.service.economic_product_number
+
       invoice_line = Economic::CurrentInvoiceLine.new
       invoice_line.description = line[:description]
-      invoice_line.product_handle = {:number => agreement.service.economic_product_number}
+      invoice_line.product_handle = {:number => product_number}
       invoice_line.quantity = line[:quantity] || 1
       invoice_line.unit_handle = unit_handle(line[:unit])
       invoice_line.unit_net_price = agreement.price
@@ -78,6 +80,8 @@ class EconomicClient
     end
 
     def find_contact(name)
+      return nil if name.blank?
+
       contacts = session.contacts.find_by_name(name)
       return nil if contacts.empty?
       return contacts.first if contacts.size == 1

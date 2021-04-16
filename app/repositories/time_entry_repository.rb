@@ -64,6 +64,19 @@ class TimeEntryRepository
     )
   end
 
+  # Returns all billable time entries in the given period, grouped by day and
+  # service
+  def billable_hours_for_project_per_service(project, period)
+    mite_time_entries(
+      :billable => true,
+      :from => period.begin,
+      :group_by => "service",
+      :locked => false,
+      :project_id => project.mite_reference,
+      :to => period.end
+    )
+  end
+
   # Returns all time entries on the given date
   def on_date(date)
     mite_time_entries(:at => date)
