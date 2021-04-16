@@ -63,6 +63,6 @@ class ServicesController < ApplicationController
   def service_params
     params.
       require(:service).
-      permit(:name, :unit, :price)
+      permit(:economic_product_number, :name, :unit, :price)
   end
 end
