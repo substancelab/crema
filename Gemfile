@@ -40,6 +40,7 @@ gem "webpacker"
 gem "uglifier"
 
 # Third-party services
+gem "httparty"
 gem "mite-rb"
 gem "rconomic",
   :branch => "master",
