@@ -15,7 +15,11 @@ def product_number(service)
     "Application setup" => 1,
     "Code review" => 7,
     "Deployment" => 8,
+    "Design implementation" => 1,
+    "Performance optimization" => 1,
     "Project management" => 7,
+    "Server management" => 8,
+    "Support" => 7,
   }.fetch(service)
 end
 

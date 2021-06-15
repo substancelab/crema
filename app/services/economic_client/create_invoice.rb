@@ -103,6 +103,7 @@ class EconomicClient
         :per_hour => {:number => 1},
         :per_month => {:number => 4},
         :per_unit => {:number => 3},
+        :per_week => {:number => 3},
       }.fetch(unit)
     end
   end
