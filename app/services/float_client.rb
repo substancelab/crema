@@ -26,11 +26,21 @@ class FloatClient
     }
   end
 
-  def tasks_in_date_range(project_id, dates = DateExt.next_month)
+  # Float only returns one instance of a recurring task per query.
+  #
+  # Pass `expand: :task_days` to have Float calculate and return all instances
+  # of a task in the given timeframe. The calculated dates will be returned
+  # under the "task_days" key.
+  def tasks_in_date_range(
+    dates = DateExt.next_month,
+    expand: [],
+    project_id: nil
+  )
     get(
       "/tasks",
       {
         :query => {
+          :expand => expand,
           :project_id => project_id,
           :start_date => dates.first,
           :end_date => dates.last,
