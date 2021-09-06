@@ -17,6 +17,7 @@ def product_number(service)
     "Deployment" => 8,
     "Design implementation" => 1,
     "Performance optimization" => 1,
+    "Quality assurance" => 7,
     "Project management" => 7,
     "Server management" => 8,
     "Support" => 7,
