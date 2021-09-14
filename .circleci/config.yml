@@ -38,6 +38,7 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3
+            bundle clean --force
             yarn install
 
       - save_cache:
