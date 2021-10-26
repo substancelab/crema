@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :agreements
   resources :customers
+  resources :leads, :only => [:index]
   resources :services
   resource :session, :only => [:destroy]
 

@@ -16,6 +16,10 @@ class Agreement < ApplicationRecord
     def default_order
       order(:project_name)
     end
+
+    def leads
+      where(:state => LEAD)
+    end
   end
 
   def to_s

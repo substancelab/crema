@@ -28,7 +28,10 @@ class AgreementsController < ApplicationController
 
   # GET /agreements
   def index
+    @states = [Agreement::DEAL, Agreement::DONE]
+
     @agreements = Agreement.
+      where(:state => @states).
       default_order.
       group_by(&:state)
   end

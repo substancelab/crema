@@ -1,0 +1,18 @@
+- content_for(:page_title, "Leads")
+
+- content_for(:page_header)
+  = render( \
+    PageHeading::Component.new( \
+      :title => content_for(:page_title), \
+      :actions => [ \
+        PageHeading::ActionLinkSecondaryComponent.new(:label => "Add new lead", :url => new_agreement_path) \
+      ] \
+    ))
+
+.mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
+  - if @leads.any?
+    .flex.flex-col
+      div class="mt-8 mb-4 mx-4 sm:mx-0"
+        h2 class="text-lg leading-6 font-medium text-gray-900" Leads
+
+      = render(:partial => "agreements/table", :locals => {:agreements => @leads})
