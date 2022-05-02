@@ -7,7 +7,7 @@ agreement = Agreement.
 economic = EconomicClient.new
 
 next_month = Date.today.next_month
-next_month_name = I18n.localize(next_month, :format => "%B", :locale => "da")
+next_month_name = I18n.l(next_month, :format => "%B", :locale => "da")
 
 description = [
   "Vedligeholdelsesaftale",
@@ -18,7 +18,7 @@ lines = [
   {
     :description => description,
     :unit => agreement.unit.to_sym,
-  }
+  },
 ]
 p economic.create_invoice(
   agreement,

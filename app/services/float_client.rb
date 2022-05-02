@@ -25,7 +25,7 @@ class FloatClient
     @options = {
       :headers => {
         :authorization => "Bearer #{api_key}",
-      }
+      },
     }
   end
 
@@ -54,8 +54,8 @@ class FloatClient
           :project_id => project_id,
           :start_date => dates.first,
           :end_date => dates.last,
-          :status => status
-        }
+          :status => status,
+        },
       }
     )
   end
@@ -65,11 +65,11 @@ class FloatClient
       "/assignments",
       @options.merge(
         :body => {
-          :assignment => attributes
+          :assignment => attributes,
         }.to_json,
         :headers => {
-          "X-Requested-With" => "XMLHttpRequest"
-        },
+          "X-Requested-With" => "XMLHttpRequest",
+        }
       )
     )
   end
@@ -78,15 +78,15 @@ class FloatClient
     get(
       "/people",
       :query => {
-        :state => "active"
+        :state => "active",
       }
     )
   end
 
-  def project_report(project_id, dates = DateExt.next_month)
+  def project_report(project_id, _dates = DateExt.next_month)
     get(
       "/reports/projects",
-      :project_id => project_id,
+      :project_id => project_id
     )
   end
 
