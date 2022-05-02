@@ -3,6 +3,15 @@
 class FloatClient
   class Error < RuntimeError; end
 
+  # https://developer.float.com/api_reference.html#Tasks
+  module Task
+    module Status
+      TENTATIVE = 1
+      CONFIRMED = 2
+      COMPLETE = 3
+    end
+  end
+
   include HTTParty
 
   base_uri "https://api.float.com/v3"
@@ -34,7 +43,8 @@ class FloatClient
   def tasks_in_date_range(
     dates = DateExt.next_month,
     expand: [],
-    project_id: nil
+    project_id: nil,
+    status: nil
   )
     get(
       "/tasks",
@@ -44,6 +54,7 @@ class FloatClient
           :project_id => project_id,
           :start_date => dates.first,
           :end_date => dates.last,
+          :status => status
         }
       }
     )
