@@ -1,1 +1,1 @@
-procodile start --dev --processes="web,worker,webpack"
+procodile start --dev --procfile=Procfile.dev
