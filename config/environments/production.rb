@@ -165,15 +165,13 @@ Rails.application.configure do
   ]
   config.session_store(
     :cache_store,
-    {
-      :key => Rails.application.credentials.app_session_key,
-      :serializer => :json,
-      :redis => {
-        :expire_after => 1.year,
-        :key_prefix => "app:session:",
-        :ttl => 1.year,
-        :url => ENV.fetch("REDIS_SESSIONS_URL"),
-      },
+    :key => Rails.application.credentials.app_session_key,
+    :serializer => :json,
+    :redis => {
+      :expire_after => 1.year,
+      :key_prefix => "app:session:",
+      :ttl => 1.year,
+      :url => ENV.fetch("REDIS_SESSIONS_URL"),
     }
   )
 end
