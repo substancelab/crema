@@ -164,7 +164,7 @@ Rails.application.configure do
     },
   ]
   config.session_store(
-    :redis_session_store,
+    :cache_store,
     {
       :key => Rails.application.credentials.app_session_key,
       :serializer => :json,
