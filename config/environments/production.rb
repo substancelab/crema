@@ -163,14 +163,17 @@ Rails.application.configure do
       :url => ENV.fetch("REDIS_CACHE_URL", "redis://localhost:6379/1"),
     },
   ]
-  config.session_store :redis_session_store, {
-    :key => Rails.application.credentials.app_session_key,
-    :serializer => :json,
-    :redis => {
-      :expire_after => 1.year,
-      :key_prefix => "app:session:",
-      :ttl => 1.year,
-      :url => ENV.fetch("REDIS_SESSIONS_URL"),
-    },
-  }
+  config.session_store(
+    :redis_session_store,
+    {
+      :key => Rails.application.credentials.app_session_key,
+      :serializer => :json,
+      :redis => {
+        :expire_after => 1.year,
+        :key_prefix => "app:session:",
+        :ttl => 1.year,
+        :url => ENV.fetch("REDIS_SESSIONS_URL"),
+      },
+    }
+  )
 end
