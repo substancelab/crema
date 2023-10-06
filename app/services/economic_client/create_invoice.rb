@@ -31,51 +31,66 @@ class EconomicClient
       :product
 
     def assign_values_from_debtor(invoice, debtor)
-      invoice.currency_handle = debtor.currency_handle
-      invoice.debtor_name = debtor.name
-      invoice.debtor_address = debtor.address
-      invoice.debtor_postal_code = debtor.postal_code
-      invoice.debtor_city = debtor.city
-      invoice.debtor_country = debtor.country
-      invoice.term_of_payment_handle = debtor.term_of_payment_handle
+      invoice.currency = debtor.currency
+      invoice.customer = debtor
+      invoice.recipient = {
+        "address" => debtor.address,
+        "city" => debtor.city,
+        # "country" => debtor.country,
+        "cvr" => debtor.corporate_identification_number,
+        "name" => debtor.name,
+        "zip" => debtor.zip,
+        "vatZone" => debtor.vat_zone,
+      }
+      invoice.payment_terms = debtor.payment_terms
     end
 
     def build_invoice(debtor)
-      invoice = debtor.current_invoices.build
+      invoice = Reconomic::Invoice.new
+      invoice.customer = debtor
 
       assign_values_from_debtor(invoice, debtor)
 
       invoice.date = Time.zone.now
-      # invoice.due_date = Time.zone.now + 15 # TODO
       invoice.exchange_rate = 100
-      invoice.is_vat_included = true
 
       invoice
     end
 
     def build_invoice_line(line, agreement)
       product_number = line[:economic_product_number] || agreement.service.economic_product_number
-
-      invoice_line = Economic::CurrentInvoiceLine.new
-      invoice_line.description = line[:description]
-      invoice_line.product_handle = {:number => product_number}
-      invoice_line.quantity = line[:quantity] || 1
-      invoice_line.unit_handle = unit_handle(line[:unit])
-      invoice_line.unit_net_price = agreement.price
-      invoice_line
+      quantity = line[:quantity] || 1
+      # TODO: Proper object for these? Reconomic::InvoiceLine?
+      {
+        "description" => line[:description],
+        "product" => {"productNumber" => product_number.to_s},
+        "quantity" => quantity,
+        "unit" => {
+          "unitNumber" => unit_handle(line[:unit]).fetch(:number),
+        },
+        "unitNetPrice" => agreement.price.to_f,
+      }
     end
 
     def create_invoice(agreement, lines)
       invoice = build_invoice(debtor)
-      invoice.heading = agreement.project_name
-      invoice.your_reference_handle = contact.handle if contact
+      invoice.notes = {
+        "heading" => agreement.project_name
+      }
+      invoice.references = {
+        "customerContact" => contact.handle
+      } if contact
 
       lines.each do |line|
         invoice_line = build_invoice_line(line, agreement)
         invoice.lines << invoice_line
       end
 
-      invoice.save
+      invoice.layout ||= {
+        "layoutNumber" => 4
+      }
+
+      invoice.save(:session => session)
       invoice
     end
 
@@ -90,11 +105,14 @@ class EconomicClient
     end
 
     def find_debtor(customer)
-      session.debtors.find(:number => customer.economic_debtor_number)
+      Reconomic::Customer.retrieve(
+        :number => customer.economic_debtor_number,
+        :session => session,
+      )
     end
 
     def find_product(service)
-      session.products.find(:number => service.economic_product_number)
+      Reconomic::Product.retrieve(:number => service.economic_product_number, :session => session)
     end
 
     def unit_handle(unit)
