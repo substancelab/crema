@@ -36,7 +36,7 @@ class EconomicClient
       invoice.recipient = {
         "address" => debtor.address,
         "city" => debtor.city,
-        # "country" => debtor.country,
+        "country" => debtor.country,
         "cvr" => debtor.corporate_identification_number,
         "name" => debtor.name,
         "zip" => debtor.zip,
