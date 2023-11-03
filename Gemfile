@@ -41,9 +41,7 @@ gem "uglifier"
 # Third-party services
 gem "httparty"
 gem "mite-rb"
-gem "rconomic",
-    :branch => "master",
-    :github => "substancelab/rconomic"
+gem "reconomic", :github => "substancelab/reconomic"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger

@@ -36,7 +36,7 @@ class EconomicClient
   end
 
   def session
-    @session ||= Economic::Session.new
+    @session ||= Reconomic::Session.new
   end
 
   def invoices_for_customer(customer)
