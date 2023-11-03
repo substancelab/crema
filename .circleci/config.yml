@@ -47,7 +47,7 @@ jobs:
           name: Run tests
           command: |
             mkdir /tmp/test-results
-            rake
+            bundle exec rake
           environment:
             DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
             HOST: "test.host"
