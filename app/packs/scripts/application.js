@@ -12,10 +12,6 @@
 import Rails from "@rails/ujs";
 Rails.start();
 
-// Start Turbolinks
-import Turbolinks from "turbolinks"
-Turbolinks.start()
-
 // Set up ActionCable
 import consumer from "./channels/consumer"
 
