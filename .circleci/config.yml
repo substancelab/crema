@@ -1,16 +1,17 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
+  node: circleci/node@5.1.0
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.0.2-node
+      - image: cimg/ruby:3.0.2
         environment:
         - PG_HOST=localhost
         - PG_USER=ubuntu
 
-      - image: circleci/postgres:12.4-ram
+      - image: cimg/postgres:15.4
         environment:
         - POSTGRES_USER=ubuntu
         - POSTGRES_PASSWORD=secret
@@ -19,14 +20,9 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: "Install specified version of Node.js and npm"
-          command: |
-            export WANTED_NODE_VERSION=`grep nodejs .tool-versions | cut -d " " -f 2`
-            echo $WANTED_NODE_VERSION
-            curl -sSL "https://nodejs.org/dist/v${WANTED_NODE_VERSION}/node-v${WANTED_NODE_VERSION}-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v${WANTED_NODE_VERSION}-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
-            node -v
+      - node/install:
+          install-yarn: true
+          node-version: '16.13'
 
       - restore_cache:
           keys:
@@ -48,10 +44,18 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
 
       - run:
+          name: Set up database
+          command: |
+            bundle exec rails db:create db:schema:load
+          environment:
+            DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
+            HOST: "test.host"
+
+      - run:
           name: Run tests
           command: |
             mkdir /tmp/test-results
-            rake
+            bundle exec rake
           environment:
             DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
             HOST: "test.host"
