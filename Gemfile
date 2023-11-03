@@ -32,7 +32,6 @@ gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
 gem "stimulus_reflex"
-gem "turbolinks"
 gem "view_component"
 gem "webpacker"
 
