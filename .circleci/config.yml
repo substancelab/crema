@@ -11,7 +11,7 @@ jobs:
         - PG_HOST=localhost
         - PG_USER=ubuntu
 
-      - image: circleci/postgres:12.4-ram
+      - image: cimg/postgres:15.4
         environment:
         - POSTGRES_USER=ubuntu
         - POSTGRES_PASSWORD=secret
