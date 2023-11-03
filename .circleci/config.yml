@@ -44,6 +44,14 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
 
       - run:
+          name: Set up database
+          command: |
+            bundle exec rails db:create db:schema:load
+          environment:
+            DATABASE_URL: "postgres://ubuntu:secret@localhost:5432/circle_test"
+            HOST: "test.host"
+
+      - run:
           name: Run tests
           command: |
             mkdir /tmp/test-results
