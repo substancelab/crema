@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.0.2"
+ruby "3.2.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -10,6 +10,11 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails"
+gem "psych", "< 4.0"
+
+gem "net-imap"
+gem "net-pop"
+gem "net-smtp"
 
 gem "bootsnap", ">= 1.4.4", :require => false
 
