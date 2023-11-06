@@ -2,24 +2,13 @@
   "name": "crema",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.4",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.10.3",
     "@hotwired/stimulus": "^3.2.2",
     "@rails/ujs": "^6.1.0",
     "@tailwindcss/ui": "^0.6.2",
-    "autoprefixer": "^9.8.6",
     "esbuild": "^0.19.5",
     "glob": "^7.1.4",
     "js-yaml": "^3.14.0",
     "path-complete-extname": "^1.0.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-smart-import": "^0.7.6",
-    "precss": "^4.0.0",
-    "resolve-url-loader": "^3.1.0",
     "stimulus": "^1.1.1",
     "tailwindcss": "^1.8.10",
     "tailwindcss-stimulus-components": "^2.0.9"
@@ -28,7 +17,7 @@
     "prettier": "2.1.1"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
