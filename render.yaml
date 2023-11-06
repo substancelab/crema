@@ -25,10 +25,6 @@ services:
         value: rediss://:p685a49c16f02f427ca9a64f285c1bb13e86ca3889c190fe0b1d15c7b0217fa8e@ec2-52-213-237-25.eu-west-1.compute.amazonaws.com:7510
       - key: REDIS_CACHE_URL # Imported from Heroku app
         value: redis://:p685a49c16f02f427ca9a64f285c1bb13e86ca3889c190fe0b1d15c7b0217fa8e@ec2-52-213-237-25.eu-west-1.compute.amazonaws.com:7509
-      - key: REDIS_SESSIONS_TLS_URL # Imported from Heroku app
-        value: rediss://:p05507d2530d494a12d5e6805be4b1bc74f67579b3db8460ed917c597b1cb77b3@ec2-54-247-119-187.eu-west-1.compute.amazonaws.com:26390
-      - key: REDIS_SESSIONS_URL # Imported from Heroku app
-        value: redis://:p05507d2530d494a12d5e6805be4b1bc74f67579b3db8460ed917c597b1cb77b3@ec2-54-247-119-187.eu-west-1.compute.amazonaws.com:26389
       - key: DATABASE_URL # Render PostgreSQL database
         fromDatabase:
           name: postgresql-tapered-97648
@@ -38,20 +34,10 @@ services:
           name: redis-closed-78233
           type: redis
           property: connectionString
-      - key: REDIS_URL # Render Redis service
-        fromService:
-          name: redis-opaque-68847
-          type: redis
-          property: connectionString
   - type: redis # Render Redis service
     name: redis-closed-78233
     plan: starter # optional (defaults to starter)
-    maxmemoryPolicy: allkeys-lru # optional (defaults to allkeys-lru)  
-    ipAllowList: [] # only allow internal connections
-  - type: redis # Render Redis service
-    name: redis-opaque-68847
-    plan: starter # optional (defaults to starter)
-    maxmemoryPolicy: allkeys-lru # optional (defaults to allkeys-lru)  
+    maxmemoryPolicy: allkeys-lru # optional (defaults to allkeys-lru)
     ipAllowList: [] # only allow internal connections
 
 databases: # Render PostgreSQL database
