@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_074350) do
-
+ActiveRecord::Schema[7.1].define(version: 2021_04_16_074350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_04_16_074350) do
     t.date "ends_on"
     t.string "state", default: "", null: false
     t.string "purchase_order_number", default: "", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_agreements_on_customer_id"
     t.index ["service_id"], name: "index_agreements_on_service_id"
   end
@@ -37,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_04_16_074350) do
     t.string "invoice_email", default: "", null: false
     t.text "address", default: "", null: false
     t.string "phone", default: "", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "economic_debtor_number"
   end
 
@@ -46,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_04_16_074350) do
     t.string "name", null: false
     t.string "unit", null: false
     t.decimal "price", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "economic_product_number"
   end
 
