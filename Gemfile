@@ -28,7 +28,6 @@ gem "omniauth-google-oauth2"
 # Frontend
 gem "simple_form"
 gem "slim-rails"
-gem "stimulus_reflex"
 gem "view_component"
 gem "webpacker"
 

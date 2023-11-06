@@ -56,4 +56,4 @@
                     td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = invoice.number
                     td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = invoice.net_amount
   - else
-    = button_to("Create e-conomic debtor", economic_debtors_path(:customer_id => @customer), :class => "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50 focus:outline-none focus:border-green-300 focus:shadow-outline-green active:bg-green-200 transition ease-in-out duration-150", :data => {:customer_id => @customer.id, :reflex => "click->EconomicDebtor#create", :reflex_dataset => "combined"})
+    = button_to("Create e-conomic debtor", economic_debtors_path(:customer_id => @customer), :class => "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50 focus:outline-none focus:border-green-300 focus:shadow-outline-green active:bg-green-200 transition ease-in-out duration-150", :data => {:customer_id => @customer.id})
