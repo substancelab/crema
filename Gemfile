@@ -12,6 +12,10 @@ end
 gem "rails"
 gem "psych", "< 4.0"
 
+gem "net-imap"
+gem "net-pop"
+gem "net-smtp"
+
 gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
