@@ -27,15 +27,15 @@
     = @customer.phone
 
   .flex.flex-col
-    div class="mt-8 mb-4 mx-4 sm:mx-0"
-      h2 class="text-lg leading-6 font-medium text-gray-900" Agreements
+    div class="mx-4 mt-8 mb-4 sm:mx-0"
+      h2 class="text-lg font-medium leading-6 text-gray-900" Agreements
 
     = render :partial => "agreements/table", :locals => {:agreements => @customer.agreements}
 
   - if @customer.economic_debtor_number
     .flex.flex-col
-      div class="mt-8 mb-4 mx-4 sm:mx-0"
-        h2 class="text-lg leading-6 font-medium text-gray-900" Invoices
+      div class="mx-4 mt-8 mb-4 sm:mx-0"
+        h2 class="text-lg font-medium leading-6 text-gray-900" Invoices
 
       - invoices = EconomicClient.new.invoices_for_customer(@customer)
       .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
