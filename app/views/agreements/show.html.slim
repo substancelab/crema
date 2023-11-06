@@ -7,7 +7,7 @@
         PageHeading::ActionLinkComponent.new(:label => "Edit", :url => edit_agreement_path(@agreement)) \
       ] \
     )) do |component|
-      - component.with(:meta) do
+      - component.with_meta do
         div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4"
           / <!-- Heroicon name: beaker -->
           svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"

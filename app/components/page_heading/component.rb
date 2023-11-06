@@ -5,7 +5,7 @@
 # https://tailwindui.com/components/application-ui/headings/page-headings
 module PageHeading
   class Component < ViewComponent::Base
-    with_content_areas :meta
+    renders_one :meta
 
     def initialize(title:, actions: [])
       super
