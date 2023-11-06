@@ -34,7 +34,6 @@ gem "simple_form"
 gem "slim-rails"
 gem "sprockets-rails"
 gem "view_component"
-gem "webpacker"
 
 # Assets management
 gem "uglifier"
