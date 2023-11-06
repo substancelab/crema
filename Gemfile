@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails"
+gem "rails", ">= 7.0"
 gem "psych", "< 4.0"
 
 gem "net-imap"
@@ -30,10 +30,13 @@ gem "rails-i18n"
 gem "omniauth-google-oauth2"
 
 # Frontend
+gem "jsbundling-rails"
 gem "simple_form"
 gem "slim-rails"
+gem "sprockets-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails"
 gem "view_component"
-gem "webpacker"
 
 # Assets management
 gem "uglifier"
@@ -67,7 +70,6 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
   gem "listen"
-  gem "web-console", ">= 4.1.0"
 
   # Run stuff automatically
   gem "guard"
