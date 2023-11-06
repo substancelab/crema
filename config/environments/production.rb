@@ -153,7 +153,7 @@ Rails.application.configure do
   #   ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Use a real queuing backend for Active Job
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :inline
 
   # Use Redis for caches
   config.cache_store = [
