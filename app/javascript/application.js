@@ -13,13 +13,4 @@ import Rails from "@rails/ujs";
 Rails.start();
 
 // Set up Stimulus
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-
-const application = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
-
-// Import and register all TailwindCSS Components
-import { Dropdown } from "tailwindcss-stimulus-components"
-application.register('dropdown', Dropdown)
+import "./controllers"
