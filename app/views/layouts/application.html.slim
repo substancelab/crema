@@ -11,7 +11,7 @@ html lang="#{I18n.locale}"
     = csrf_meta_tags
 
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    / = javascript_tag "scripts/application"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   body
     .min-h-screen.bg-gray-100

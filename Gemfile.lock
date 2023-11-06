@@ -191,6 +191,8 @@ GEM
     irb (1.8.3)
       rdoc
       reline (>= 0.3.8)
+    jsbundling-rails (1.2.1)
+      railties (>= 6.0.0)
     json (2.6.3)
     jwt (2.3.0)
     language_server-protocol (3.17.0.3)
@@ -452,6 +454,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   httparty
+  jsbundling-rails
   listen
   mite-rb
   net-imap

@@ -30,6 +30,7 @@ gem "rails-i18n"
 gem "omniauth-google-oauth2"
 
 # Frontend
+gem "jsbundling-rails"
 gem "simple_form"
 gem "slim-rails"
 gem "sprockets-rails"

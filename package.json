@@ -11,6 +11,7 @@
     "@rails/ujs": "^6.1.0",
     "@tailwindcss/ui": "^0.6.2",
     "autoprefixer": "^9.8.6",
+    "esbuild": "^0.19.5",
     "glob": "^7.1.4",
     "js-yaml": "^3.14.0",
     "path-complete-extname": "^1.0.0",
@@ -27,5 +28,8 @@
   },
   "engines": {
     "node": "16.x"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
   }
 }
