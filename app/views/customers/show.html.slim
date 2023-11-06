@@ -27,15 +27,15 @@
     = @customer.phone
 
   .flex.flex-col
-    div class="mt-8 mb-4 mx-4 sm:mx-0"
-      h2 class="text-lg leading-6 font-medium text-gray-900" Agreements
+    div class="mx-4 mt-8 mb-4 sm:mx-0"
+      h2 class="text-lg font-medium leading-6 text-gray-900" Agreements
 
     = render :partial => "agreements/table", :locals => {:agreements => @customer.agreements}
 
   - if @customer.economic_debtor_number
     .flex.flex-col
-      div class="mt-8 mb-4 mx-4 sm:mx-0"
-        h2 class="text-lg leading-6 font-medium text-gray-900" Invoices
+      div class="mx-4 mt-8 mb-4 sm:mx-0"
+        h2 class="text-lg font-medium leading-6 text-gray-900" Invoices
 
       - invoices = EconomicClient.new.invoices_for_customer(@customer)
       .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
@@ -56,4 +56,4 @@
                     td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = invoice.number
                     td.px-6.py-4.whitespace-no-wrap.text-sm.leading-5.font-medium.text-gray-900 = invoice.net_amount
   - else
-    = button_to("Create e-conomic debtor", economic_debtors_path(:customer_id => @customer), :class => "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50 focus:outline-none focus:border-green-300 focus:shadow-outline-green active:bg-green-200 transition ease-in-out duration-150", :data => {:customer_id => @customer.id, :reflex => "click->EconomicDebtor#create", :reflex_dataset => "combined"})
+    = button_to("Create e-conomic debtor", economic_debtors_path(:customer_id => @customer), :class => "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-50 focus:outline-none focus:border-green-300 focus:shadow-outline-green active:bg-green-200 transition ease-in-out duration-150", :data => {:customer_id => @customer.id})

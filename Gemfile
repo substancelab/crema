@@ -15,7 +15,6 @@ gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
 gem "postgresql"
-gem "redis-session-store"
 
 # App serving
 gem "puma"
@@ -25,13 +24,9 @@ gem "rails-i18n"
 # Authentication
 gem "omniauth-google-oauth2"
 
-# Background processing
-gem "sidekiq"
-
 # Frontend
 gem "simple_form"
 gem "slim-rails"
-gem "stimulus_reflex"
 gem "view_component"
 gem "webpacker"
 

@@ -98,10 +98,7 @@ Rails.application.configure do
   Slim::Engine.set_options :pretty => true
 
   # Use a real queuing backend for Active Job
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :inline
 
-  # Cookie-based session management is not currently supported by
-  # StimulusReflex. Set session management to be managed by the cache store,
-  # which in Rails defaults to the memory store.
-  config.session_store :cache_store
+  config.session_store :cookie_store, :key => "_crema_session"
 end

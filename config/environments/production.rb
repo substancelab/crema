@@ -153,25 +153,10 @@ Rails.application.configure do
   #   ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Use a real queuing backend for Active Job
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :inline
 
-  # Use Redis for caches
-  config.cache_store = [
-    :redis_cache_store,
-    {
-      :driver => :hiredis,
-      :url => ENV.fetch("REDIS_CACHE_URL", "redis://localhost:6379/1"),
-    },
-  ]
   config.session_store(
-    :cache_store,
-    :key => Rails.application.credentials.app_session_key,
-    :serializer => :json,
-    :redis => {
-      :expire_after => 1.year,
-      :key_prefix => "app:session:",
-      :ttl => 1.year,
-      :url => ENV.fetch("REDIS_SESSIONS_URL"),
-    }
+    :cookie_store,
+    :key => Rails.application.credentials.app_session_key
   )
 end
