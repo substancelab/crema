@@ -38,9 +38,6 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "view_component"
 
-# Assets management
-gem "uglifier"
-
 # Third-party services
 gem "httparty"
 gem "mite-rb"
