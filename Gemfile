@@ -10,6 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails"
+gem "psych", "< 4.0"
 
 gem "bootsnap", ">= 1.4.4", :require => false
 
