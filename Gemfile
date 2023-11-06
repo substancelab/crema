@@ -33,6 +33,7 @@ gem "omniauth-google-oauth2"
 gem "simple_form"
 gem "slim-rails"
 gem "sprockets-rails"
+gem "tailwindcss-rails"
 gem "view_component"
 
 # Assets management
