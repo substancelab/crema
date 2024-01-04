@@ -94,8 +94,8 @@ GEM
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    base64 (0.1.1)
-    bigdecimal (3.1.4)
+    base64 (0.2.0)
+    bigdecimal (3.1.5)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -126,7 +126,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    drb (2.1.1)
+    drb (2.2.0)
       ruby2_keywords
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -221,7 +221,7 @@ GEM
     msgpack (1.7.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    mutex_m (0.1.2)
+    mutex_m (0.2.0)
     nenv (0.3.0)
     net-imap (0.4.4)
       date
@@ -428,7 +428,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.5.0)
-    view_component (3.7.0)
+    view_component (3.9.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
