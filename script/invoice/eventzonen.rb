@@ -12,6 +12,7 @@ p period
 
 def product_number(service)
   {
+    "Administration (B)" => 7,
     "Application development" => 1,
     "Application setup" => 1,
     "Code review" => 7,
