@@ -59,7 +59,7 @@ lines = services_rendered.map do |service_name, quantity|
     :quantity => quantity,
   }
 end
-p lines
+p lines.sort_by(&:first)
 
 economic = EconomicClient.new
 p economic.create_invoice(
