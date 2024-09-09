@@ -272,9 +272,6 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
-    postgresql (1.0.0)
-      pg
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -482,7 +479,6 @@ DEPENDENCIES
   net-pop
   net-smtp
   omniauth-google-oauth2
-  postgresql
   psych (< 4.0)
   puma
   rack-mini-profiler
