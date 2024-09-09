@@ -26,7 +26,6 @@
 /pids/*
 
 .byebug_history
-config/database.yml
 
 .yarn-integrity
 /node_modules
