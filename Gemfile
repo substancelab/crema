@@ -20,6 +20,7 @@ gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
 gem "postgresql"
+gem "sqlite3", "< 2.0"
 
 # App serving
 gem "puma"
