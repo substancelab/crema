@@ -171,7 +171,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    guard-rubocop (1.4.0)
+    guard-rubocop (1.5.0)
       guard (~> 2.0)
       rubocop (< 2.0)
     hashie (5.0.0)
@@ -208,7 +208,7 @@ GEM
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    lumberjack (1.2.9)
+    lumberjack (1.2.10)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -440,7 +440,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     uri (0.13.0)
     version_gem (1.1.4)
     view_component (3.12.1)
