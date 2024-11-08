@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Runs an invoicing script on production
+
+application_path="~/crema-production/current"
+invoice_scripts_path="script/invoice"
+
+if [ -z "$1" ]; then
+  cmd="ls $invoice_scripts_path"
+else
+  cmd="bundle exec rails runner $invoice_scripts_path/$1.rb"
+fi
+
+echo "$cmd"
+ssh deploy@188.245.153.230 "cd $application_path && $cmd"
