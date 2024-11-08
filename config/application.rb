@@ -27,5 +27,8 @@ module Crema
     # memory consumption, since it does not need to build an index for these
     # directories.
     config.add_autoload_paths_to_load_path = false
+
+    # Run SQLite in production! YOLO!
+    config.active_record.sqlite3_production_warning = false
   end
 end
