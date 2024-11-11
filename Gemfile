@@ -10,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails", ">= 7.0"
-gem "psych", "< 4.0"
+gem "psych", "< 6.0"
 
 gem "net-imap"
 gem "net-pop"
