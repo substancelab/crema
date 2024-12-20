@@ -22,7 +22,13 @@ agreement = Agreement.
   find_by!(:project_name => "BoligZonen")
 
 collector = Collector.new
-period = collector.billable_period(agreement)
+force_current_month = ARGV.include?("--current-month")
+month_base = if force_current_month
+  Time.zone.today
+else
+  Time.zone.today.last_month
+end
+period = collector.billable_period(agreement, last_month: month_base)
 
 float = FloatClient.new
 float_project_id = 8_441_805
