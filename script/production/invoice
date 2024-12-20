@@ -8,7 +8,7 @@ invoice_scripts_path="script/invoice"
 if [ -z "$1" ]; then
   cmd="ls $invoice_scripts_path"
 else
-  cmd="bundle exec rails runner $invoice_scripts_path/$1.rb"
+  cmd="bundle exec rails runner $invoice_scripts_path/$1.rb $2"
 fi
 
 echo "$cmd"
