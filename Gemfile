@@ -19,7 +19,7 @@ gem "net-smtp"
 gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
-gem "sqlite3", "< 2.0"
+gem "sqlite3", "< 3.0"
 
 # App serving
 gem "puma"
