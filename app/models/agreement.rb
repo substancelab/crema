@@ -9,6 +9,12 @@ class Agreement < ApplicationRecord
   belongs_to :customer
   belongs_to :service
 
+  validates :discount_percentage, :numericality => {
+    :allow_nil => true,
+    :greater_than_or_equal_to => 0,
+    :less_than_or_equal_to => 100,
+    :only_integer => true,
+  }
   validates :project_name, :presence => true
   validates :state, :inclusion => {:in => STATES}
 

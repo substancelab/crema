@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2021_04_16_074350) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_01_123224) do
   create_table "agreements", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "service_id", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2021_04_16_074350) do
     t.string "purchase_order_number", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discount_percentage", default: 0, null: false
     t.index ["customer_id"], name: "index_agreements_on_customer_id"
     t.index ["service_id"], name: "index_agreements_on_service_id"
   end
