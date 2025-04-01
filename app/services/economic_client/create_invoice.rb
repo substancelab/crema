@@ -58,11 +58,13 @@ class EconomicClient
     end
 
     def build_invoice_line(line, agreement)
+      discount = agreement.discount_percentage || 0
       product_number = line[:economic_product_number] || agreement.service.economic_product_number
       quantity = line[:quantity] || 1
       # TODO: Proper object for these? Reconomic::InvoiceLine?
       {
         "description" => line[:description],
+        "discountPercentage" => discount,
         "product" => {"productNumber" => product_number.to_s},
         "quantity" => quantity,
         "unit" => {
