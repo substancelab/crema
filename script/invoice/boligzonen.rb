@@ -14,6 +14,7 @@ def last_week_day(dayname, before: Date.today)
 end
 
 MITE_TO_ECONOMIC_MAPPINGS = {
+  "Application development" => "Udviklingsiteration",
   "Development" => "Udviklingsdag",
 }.freeze
 
