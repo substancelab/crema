@@ -14,3 +14,6 @@ Rails.start();
 
 // Set up Stimulus
 import "./controllers"
+
+// Import Flowbite interactions
+import "flowbite/dist/flowbite.turbo.js";

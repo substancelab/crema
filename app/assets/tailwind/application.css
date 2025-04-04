@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@import "flowbite/src/themes/default";
+@import "flowbite/plugin";
+@source "../../../node_modules/flowbite/";
+
 /*
 
 @layer components {
