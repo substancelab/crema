@@ -10,6 +10,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/ui": "^0.6.2",
     "esbuild": "^0.25.0",
+    "flowbite": "^3.1.2",
     "glob": "^7.1.4",
     "js-yaml": "^3.14.0",
     "path-complete-extname": "^1.0.0",
