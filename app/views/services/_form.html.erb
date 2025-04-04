@@ -5,7 +5,7 @@
         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
           <%= form.label :name, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <%- css_classes = form.object.errors.include?(:name) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs" %>
+            <%- css_classes = form.object.errors.include?(:name) ? "max-w-lg relative rounded-md shadow-xs sm:max-w-xs" : "max-w-lg rounded-md shadow-xs sm:max-w-xs" %>
             <div class="<%= css_classes %>">
               <%= form.text_field :name, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
               <% if form.object.errors.include?(:name) %>
@@ -27,7 +27,7 @@
         <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
           <%= form.label :price, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <%- css_classes = form.object.errors.include?(:price) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs" %>
+            <%- css_classes = form.object.errors.include?(:price) ? "max-w-lg relative rounded-md shadow-xs sm:max-w-xs" : "max-w-lg rounded-md shadow-xs sm:max-w-xs" %>
             <div class="<%= css_classes %>">
               <%= form.number_field :price, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
               <% if form.object.errors.include?(:price) %>
@@ -56,7 +56,7 @@
         <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
           <%= form.label :economic_product_number, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <%- css_classes = form.object.errors.include?(:economic_product_number) ? "max-w-lg relative rounded-md shadow-sm sm:max-w-xs" : "max-w-lg rounded-md shadow-sm sm:max-w-xs" %>
+            <%- css_classes = form.object.errors.include?(:economic_product_number) ? "max-w-lg relative rounded-md shadow-xs sm:max-w-xs" : "max-w-lg rounded-md shadow-xs sm:max-w-xs" %>
             <div class="<%= css_classes %>">
               <%= form.number_field :economic_product_number, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
               <% if form.object.errors.include?(:economic_product_number) %>
@@ -80,11 +80,11 @@
   </div>
   <div class="mt-8 border-t border-gray-200 pt-5">
     <div class="flex justify-end">
-      <span class="ml-3 inline-flex rounded-md shadow-sm">
-        <%= link_to "Cancel", services_path, :class => "py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out" %>
+      <span class="ml-3 inline-flex rounded-md shadow-xs">
+        <%= link_to "Cancel", services_path, :class => "py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out" %>
       </span>
-      <span class="ml-3 inline-flex rounded-md shadow-sm">
-        <%= form.submit "Save", :class => "inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out" %>
+      <span class="ml-3 inline-flex rounded-md shadow-xs">
+        <%= form.submit "Save", :class => "inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-hidden focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out" %>
       </span>
     </div>
   </div>
