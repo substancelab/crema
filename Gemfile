@@ -35,7 +35,7 @@ gem "simple_form"
 gem "slim-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 4.0"
 gem "view_component"
 
 # Third-party services
