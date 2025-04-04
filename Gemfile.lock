@@ -518,7 +518,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (< 3.0)
   stimulus-rails
-  tailwindcss-rails (~> 4.0)
+  tailwindcss-rails
   tzinfo-data
   view_component
 
