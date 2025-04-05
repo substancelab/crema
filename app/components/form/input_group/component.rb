@@ -20,9 +20,13 @@ module Form
         @object = form.object
       end
 
+      def input_field_class
+        ::Flowbite::Input::Field
+      end
+
       # Returns the HTML to use for the actual input field element.
       def input_field
-        render(::Flowbite::Input::Field.new(@form, @attribute))
+        render(input_field_class.new(@form, @attribute))
       end
 
       # Returns the name of the method used to generate HTML for the input field
