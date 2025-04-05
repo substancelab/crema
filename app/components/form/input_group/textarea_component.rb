@@ -3,9 +3,8 @@
 module Form
   module InputGroup
     class TextareaComponent < Form::InputGroup::Component
-      # Returns the HTML to use for the actual input field element.
-      def input_field
-        render(::Flowbite::Input::Textarea.new(@form, @attribute))
+      def input_field_class
+        ::Flowbite::Input::Textarea
       end
     end
   end
