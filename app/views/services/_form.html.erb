@@ -1,28 +1,8 @@
 <%= form_for(service) do |form| %>
   <div>
     <div>
-      <div class="mt-6 sm:mt-5">
-        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-          <%= form.label :name, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
-          <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <%- css_classes = form.object.errors.include?(:name) ? "max-w-lg relative rounded-md shadow-xs sm:max-w-xs" : "max-w-lg rounded-md shadow-xs sm:max-w-xs" %>
-            <div class="<%= css_classes %>">
-              <%= form.text_field :name, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
-              <% if form.object.errors.include?(:name) %>
-                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                  <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              <% end %>
-            </div>
-            <% if form.object.errors.include?(:name) %>
-              <% form.object.errors[:name].each do |error| %>
-                <p class="mt-2 text-sm text-red-600">↑ <%= error.upcase_first %></p>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+      <div class="space-y-6">
+        <%= render(Form::InputGroup::Component.new(:form => form, :attribute => :name)) %>
 
         <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
           <%= form.label :price, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
@@ -46,35 +26,9 @@
           </div>
         </div>
 
-        <%= render(
-          Form::UnitSelectorComponent.new(
-            :form => form,
-            :attribute => :unit,
-          )
-        ) %>
+        <%= render(Form::UnitSelectorComponent.new(:form => form, :attribute => :unit)) %>
 
-        <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-          <%= form.label :economic_product_number, :class => "block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2" %>
-          <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <%- css_classes = form.object.errors.include?(:economic_product_number) ? "max-w-lg relative rounded-md shadow-xs sm:max-w-xs" : "max-w-lg rounded-md shadow-xs sm:max-w-xs" %>
-            <div class="<%= css_classes %>">
-              <%= form.number_field :economic_product_number, :class => "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
-              <% if form.object.errors.include?(:economic_product_number) %>
-                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                  <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              <% end %>
-            </div>
-            <% if form.object.errors.include?(:economic_product_number) %>
-              <% form.object.errors[:economic_product_number].each do |error| %>
-                <p class="mt-2 text-sm text-red-600">↑ <%= error.upcase_first %></p>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-
+        <%= render(Form::InputGroup::Component.new(:form => form, :attribute => :economic_product_number)) %>
       </div>
     </div>
   </div>
