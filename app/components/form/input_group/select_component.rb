@@ -11,34 +11,15 @@ module Form
       end
 
       def input_field
-        @form.send(
-          input_field_type,
-          @attribute,
-          @collection,
-          @value_method,
-          @text_method,
-          {},
-          :class => input_field_classes
+        render(
+          ::Flowbite::Input::Select.new(
+            @form,
+            @attribute,
+            @collection,
+            @value_method,
+            @text_method
+          )
         )
-      end
-
-      # Returns an array with the CSS classes to apply to the input field
-      def input_field_classes
-        [
-          "block",
-          "duration-150",
-          "ease-in-out",
-          "form-select",
-          "transition",
-          "w-full",
-          "sm:text-sm",
-          "sm:leading-5",
-        ]
-      end
-
-      # Returns the name of the method used to generate HTML for the input field
-      def input_field_type
-        :collection_select
       end
     end
   end
