@@ -40,6 +40,8 @@ class EconomicClient
   end
 
   def invoices_for_customer(customer)
+    return [] unless session.respond_to?(:debtors)
+
     connect
     debtor = session.debtors.find(:number => customer.economic_debtor_number)
     debtor.invoices || []
