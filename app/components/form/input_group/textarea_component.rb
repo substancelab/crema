@@ -3,9 +3,9 @@
 module Form
   module InputGroup
     class TextareaComponent < Form::InputGroup::Component
-      # Returns the name of the method used to generate HTML for the input field
-      def input_field_type
-        :text_area
+      # Returns the HTML to use for the actual input field element.
+      def input_field
+        render(::Flowbite::Input::Textarea.new(@form, @attribute))
       end
     end
   end
