@@ -3,6 +3,11 @@
 module Flowbite
   module Input
     class Field < ViewComponent::Base
+      STATES = [
+        DEFAULT = :default,
+        ERROR = :error,
+      ].freeze
+
       def initialize(form, attribute)
         super
         @attribute = attribute
@@ -21,6 +26,28 @@ module Flowbite
 
       # Returns an array with the CSS classes to apply to the input field
       def input_field_classes
+        case state
+        when ERROR
+          error_classes
+        else
+          default_classes
+        end
+      end
+
+      # Returns the name of the method used to generate HTML for the input field
+      def input_field_type
+        :text_field
+      end
+
+      protected
+
+      def errors?
+        @object.errors.include?(@attribute.intern)
+      end
+
+      private
+
+      def default_classes
         [
           "bg-gray-50",
           "border",
@@ -42,9 +69,33 @@ module Flowbite
         ]
       end
 
-      # Returns the name of the method used to generate HTML for the input field
-      def input_field_type
-        :text_field
+      def error_classes
+        [
+          "bg-red-50",
+          "border",
+          "border-red-500",
+          "text-red-900",
+          "placeholder-red-700",
+          "text-sm",
+          "rounded-lg",
+          "focus:ring-red-500",
+          "dark:bg-gray-700",
+          "focus:border-red-500",
+          "block",
+          "w-full",
+          "p-2.5",
+          "dark:text-red-500",
+          "dark:placeholder-red-500",
+          "dark:border-red-500",
+        ]
+      end
+
+      def state
+        if errors?
+          ERROR
+        else
+          DEFAULT
+        end
       end
     end
   end
