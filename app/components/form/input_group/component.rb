@@ -51,23 +51,7 @@ module Form
 
       # Returns the HTML to use for the label element
       def label
-        @form.label(
-          @attribute,
-          :class => label_classes
-        )
-      end
-
-      # Returns an array with the CSS classes to apply to the label element
-      def label_classes
-        [
-          "block",
-          "font-medium",
-          "leading-5",
-          "text-gray-700",
-          "text-sm",
-          "sm:mt-px",
-          "sm:pt-2",
-        ]
+        render(Flowbite::Input::Label.new(@form, @attribute))
       end
     end
   end
