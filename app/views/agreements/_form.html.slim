@@ -6,7 +6,7 @@
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :price))
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :discount_percentage))
     = render(Form::UnitSelectorComponent.new(:form => form, :attribute => :unit))
-    = render(Form::InputGroup::DateComponent.new(:form => form, :attribute => :ends_on))
+    = render(Flowbite::InputField::Date.new(:form => form, :attribute => :ends_on))
     = render(Flowbite::InputField::Select.new(:form => form, :attribute => :state, :collection => Agreement::STATES))
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :purchase_order_number))
 
