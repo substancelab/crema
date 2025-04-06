@@ -3,7 +3,7 @@
     <div>
       <div class="space-y-6">
         <%= render(Flowbite::InputField::Text.new(:form => form, :attribute => :name)) %>
-        <%= render(Form::InputGroup::NumberComponent.new(:form => form, :attribute => :price)) %>
+        <%= render(Flowbite::InputField::Number.new(:form => form, :attribute => :price)) %>
 
         <%= render(Form::UnitSelectorComponent.new(:form => form, :attribute => :unit)) %>
 
