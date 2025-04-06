@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Form
-  class UnitSelectorComponent < Form::InputGroup::SelectComponent
+  class UnitSelectorComponent < Flowbite::InputField::Select
     def initialize(form:, attribute:)
       super(
         :form => form,
