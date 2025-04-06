@@ -2,12 +2,12 @@
   <div>
     <div>
       <div class="space-y-6">
-        <%= render(Form::InputGroup::Component.new(:form => form, :attribute => :name)) %>
+        <%= render(Flowbite::InputField::Text.new(:form => form, :attribute => :name)) %>
         <%= render(Form::InputGroup::NumberComponent.new(:form => form, :attribute => :price)) %>
 
         <%= render(Form::UnitSelectorComponent.new(:form => form, :attribute => :unit)) %>
 
-        <%= render(Form::InputGroup::Component.new(:form => form, :attribute => :economic_product_number)) %>
+        <%= render(Flowbite::InputField::Text.new(:form => form, :attribute => :economic_product_number)) %>
       </div>
     </div>
   </div>

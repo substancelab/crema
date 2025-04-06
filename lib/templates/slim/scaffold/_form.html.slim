@@ -1,6 +1,6 @@
 = form_for(<%= singular_table_name %>) do |form|
 <%- attributes.each.with_index do |attribute, index| -%>
-  = render(Form::InputGroup::Component.new(:form => form, :attribute => :<%= attribute.name %>))
+  = render(Flowbite::InputField::Text.new(:form => form, :attribute => :<%= attribute.name %>))
 <%- end -%>
 
   div class="mt-8 border-t border-gray-200 pt-5"
