@@ -1,6 +1,0 @@
-div
-  = label
-  = input_field
-
-  - errors.each do |error|
-    = render(Flowbite::Input::ValidationError.new(:message => error.upcase_first))
