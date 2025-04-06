@@ -4,7 +4,7 @@
     = render(Flowbite::InputField::Select.new(:form => form, :attribute => :tax_region, :collection => Customer::TAX_REGIONS))
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :tax_id))
     = render(Flowbite::InputField::Email.new(:form => form, :attribute => :invoice_email))
-    = render(Form::InputGroup::PhoneComponent.new(:form => form, :attribute => :phone))
+    = render(Flowbite::InputField::Phone.new(:form => form, :attribute => :phone))
     = render(Form::InputGroup::TextareaComponent.new(:form => form, :attribute => :address))
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :economic_debtor_number))
 
