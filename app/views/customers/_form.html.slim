@@ -5,7 +5,7 @@
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :tax_id))
     = render(Flowbite::InputField::Email.new(:form => form, :attribute => :invoice_email))
     = render(Flowbite::InputField::Phone.new(:form => form, :attribute => :phone))
-    = render(Form::InputGroup::TextareaComponent.new(:form => form, :attribute => :address))
+    = render(Flowbite::InputField::Textarea.new(:form => form, :attribute => :address))
     = render(Flowbite::InputField::Text.new(:form => form, :attribute => :economic_debtor_number))
 
   div class="pt-5 mt-8 border-t border-gray-200"
