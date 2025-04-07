@@ -4,7 +4,7 @@ module Flowbite
   class Button
     class Outline < Flowbite::Button
       class << self
-        def classes
+        def default_classes
           [
             "text-blue-700",
             "hover:text-white",
@@ -29,6 +29,12 @@ module Flowbite
             "dark:focus:ring-blue-800",
           ]
         end
+      end
+
+      private
+
+      def classes
+        self.class.default_classes
       end
     end
   end
