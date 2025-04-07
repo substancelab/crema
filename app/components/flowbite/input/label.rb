@@ -3,6 +3,30 @@
 module Flowbite
   module Input
     class Label < ViewComponent::Base
+      class << self
+        def default_classes
+          [
+            "block",
+            "mb-2",
+            "text-sm",
+            "font-medium",
+            "text-gray-900",
+            "dark:text-white",
+          ]
+        end
+
+        def error_classes
+          [
+            "block",
+            "mb-2",
+            "text-sm",
+            "font-medium",
+            "text-red-700",
+            "dark:text-red-500",
+          ]
+        end
+      end
+
       STATES = [
         DEFAULT = :default,
         ERROR = :error,
@@ -30,35 +54,13 @@ module Flowbite
       def label_classes
         case state
         when ERROR
-          error_classes
+          self.class.error_classes
         else
-          default_classes
+          self.class.default_classes
         end
       end
 
       protected
-
-      def default_classes
-        [
-          "block",
-          "mb-2",
-          "text-sm",
-          "font-medium",
-          "text-gray-900",
-          "dark:text-white",
-        ]
-      end
-
-      def error_classes
-        [
-          "block",
-          "mb-2",
-          "text-sm",
-          "font-medium",
-          "text-red-700",
-          "dark:text-red-500",
-        ]
-      end
 
       # Returns the state of the label.
       #
