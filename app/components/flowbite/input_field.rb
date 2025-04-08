@@ -13,11 +13,12 @@ module Flowbite
       @object.errors[@attribute] || []
     end
 
-    def initialize(form:, attribute:)
+    def initialize(attribute:, form:, size: :default)
       super
       @attribute = attribute
       @form = form
       @object = form.object
+      @size = size
     end
 
     def input_component
@@ -26,7 +27,7 @@ module Flowbite
 
     # Returns the HTML to use for the actual input field element.
     def input
-      render(input_component.new(@form, @attribute))
+      render(input_component.new(@form, @attribute, :size => @size))
     end
 
     # Returns the HTML to use for the label element
