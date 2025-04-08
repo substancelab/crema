@@ -38,8 +38,8 @@ module Flowbite
           ),
         }.freeze
       end
+      # rubocop:enable Layout/LineLength
     end
-    # rubocop:enable Layout/LineLength
 
     attr_reader :label, :size, :style, :type
 
