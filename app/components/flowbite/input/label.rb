@@ -3,39 +3,31 @@
 module Flowbite
   module Input
     class Label < ViewComponent::Base
-      class << self
-        def default_classes
-          [
-            "block",
-            "mb-2",
-            "text-sm",
-            "font-medium",
-            "text-gray-900",
-            "dark:text-white",
-          ]
-        end
-
-        def error_classes
-          [
-            "block",
-            "mb-2",
-            "text-sm",
-            "font-medium",
-            "text-red-700",
-            "dark:text-red-500",
-          ]
-        end
-      end
-
       STATES = [
         DEFAULT = :default,
         ERROR = :error,
       ].freeze
 
+      class << self
+        def classes(state: :default, style: :default)
+          style = styles.fetch(style)
+          style.fetch(state)
+        end
+
+        def styles
+          {
+            :default => Flowbite::Style.new(
+              :default => ["block", "mb-2", "text-sm", "font-medium", "text-gray-900", "dark:text-white"],
+              :error => ["block", "mb-2", "text-sm", "font-medium", "text-red-700", "dark:text-red-500"]
+            ),
+          }.freeze
+        end
+      end
+
       def call
         @form.label(
           @attribute,
-          :class => label_classes
+          :class => classes
         )
       end
 
@@ -51,13 +43,8 @@ module Flowbite
       end
 
       # Returns an array with the CSS classes to apply to the label element
-      def label_classes
-        case state
-        when ERROR
-          self.class.error_classes
-        else
-          self.class.default_classes
-        end
+      def classes
+        self.class.classes(:state => state)
       end
 
       protected
