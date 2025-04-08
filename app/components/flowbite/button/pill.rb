@@ -4,7 +4,7 @@ module Flowbite
   class Button
     class Pill < Flowbite::Button
       class << self
-        # rubocop:disable Metrics/LineLength, Metrics/MethodLength
+        # rubocop:disable Layout/LineLength, Metrics/MethodLength
         def styles
           {
             :alternative => Style.new(
@@ -33,7 +33,7 @@ module Flowbite
             ),
           }
         end
-        # rubocop:enable Metrics/LineLength, Metrics/MethodLength
+        # rubocop:enable Layout/LineLength, Metrics/MethodLength
       end
     end
   end

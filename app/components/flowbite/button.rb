@@ -37,7 +37,7 @@ module Flowbite
         SIZES
       end
 
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       def styles
         {
           :alternative => Style.new(
@@ -49,7 +49,7 @@ module Flowbite
         }.freeze
       end
     end
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
 
     attr_reader :label, :type
 

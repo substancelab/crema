@@ -4,7 +4,7 @@ module Flowbite
   class Button
     class Outline < Flowbite::Button
       class << self
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         def styles
           {
             :default => Style.new(
@@ -15,7 +15,7 @@ module Flowbite
             ),
           }
         end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
       end
     end
   end
