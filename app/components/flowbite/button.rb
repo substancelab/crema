@@ -51,11 +51,12 @@ module Flowbite
     end
     # rubocop:enable Layout/LineLength
 
-    attr_reader :label, :style, :type
+    attr_reader :label, :size, :style, :type
 
-    def initialize(label:, style: :default, type: :button)
+    def initialize(label:, size: :default, style: :default, type: :button)
       super
       @label = label
+      @size = size
       @style = style
       @type = type
     end
@@ -71,7 +72,7 @@ module Flowbite
     private
 
     def classes
-      self.class.classes(:state => :default, :style => style)
+      self.class.classes(size: size, state: :default, style: style)
     end
   end
 end
