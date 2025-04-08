@@ -62,7 +62,7 @@ module Flowbite
     private
 
     def classes
-      self.class.classes(size: size, state: :default, style: style)
+      self.class.classes(:size => size, :state => :default, :style => style)
     end
   end
 end
