@@ -38,6 +38,8 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "view_component"
 
+gem "flowbite-view_components", :github => "substancelab/flowbite-view_components"
+
 # Third-party services
 gem "httparty"
 gem "mite-rb"

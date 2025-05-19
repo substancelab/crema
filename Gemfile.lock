@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/substancelab/flowbite-view_components.git
+  revision: 81e8ba0d8ab8755f9dc0afd005fc43a1f68ad776
+  specs:
+    flowbite-view_components (0.1.0)
+      view_component
+
+GIT
   remote: https://github.com/substancelab/reconomic.git
   revision: a6c1845ebc9a578ba27b775758decb0084c0df5f
   specs:
@@ -490,6 +497,7 @@ DEPENDENCIES
   database_cleaner-active_record
   dotenv-rails
   factory_bot_rails
+  flowbite-view_components!
   guard
   guard-livereload
   guard-rspec
