@@ -413,7 +413,7 @@ GEM
       websocket (~> 1.0)
     shale (1.0.0)
     shellany (0.0.1)
-    shoulda-matchers (6.4.0)
+    shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
     simple_form (5.3.1)
       actionpack (>= 5.2)
