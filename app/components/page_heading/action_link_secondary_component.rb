@@ -3,7 +3,7 @@
 module PageHeading
   class ActionLinkSecondaryComponent < ViewComponent::Base
     def initialize(label:, url:)
-      super
+      super()
       @label = label
       @url = url
     end

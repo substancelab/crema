@@ -3,7 +3,7 @@
 module PageHeading
   class DeleteActionComponent < ViewComponent::Base
     def initialize(label:, url:)
-      super
+      super()
       @label = label
       @url = url
     end

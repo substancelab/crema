@@ -35,10 +35,10 @@ gem "simple_form"
 gem "slim-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "4.3.0"
 gem "view_component"
 
-gem "flowbite-view_components", :github => "substancelab/flowbite-view_components"
+gem "flowbite-components", :github => "substancelab/flowbite-components"
 
 # Third-party services
 gem "httparty"

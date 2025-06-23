@@ -8,7 +8,7 @@ module PageHeading
     renders_one :meta
 
     def initialize(title:, actions: [])
-      super
+      super()
       @title = title
       @actions = actions
     end
