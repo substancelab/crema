@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/substancelab/flowbite-view_components.git
-  revision: 81e8ba0d8ab8755f9dc0afd005fc43a1f68ad776
+  revision: 79ec460acd447df9bbeaaa0b14000c98dfd8b9ee
   specs:
     flowbite-view_components (0.1.0)
       view_component
