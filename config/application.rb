@@ -12,7 +12,7 @@ Bundler.require(*Rails.groups)
 module Crema
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults "7.0"
+    config.load_defaults "8.1"
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -27,8 +27,5 @@ module Crema
     # memory consumption, since it does not need to build an index for these
     # directories.
     config.add_autoload_paths_to_load_path = false
-
-    # Run SQLite in production! YOLO!
-    config.active_record.sqlite3_production_warning = false
   end
 end
