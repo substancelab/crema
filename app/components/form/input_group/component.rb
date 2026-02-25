@@ -14,7 +14,6 @@ module Form
       end
 
       def initialize(form:, attribute:)
-        super
         @attribute = attribute
         @form = form
         @object = form.object

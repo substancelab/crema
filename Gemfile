@@ -2,24 +2,19 @@
 
 source "https://rubygems.org"
 
-ruby "3.2.1"
+ruby ">= 3.3.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", ">= 7.0"
-gem "psych", "< 6.0"
-
-gem "net-imap"
-gem "net-pop"
-gem "net-smtp"
+gem "rails", "~> 8.1.0"
 
 gem "bootsnap", ">= 1.4.4", :require => false
 
 # Database
-gem "sqlite3", "< 3.0"
+gem "sqlite3"
 
 # App serving
 gem "puma"
@@ -54,7 +49,7 @@ group :development, :test do
   gem "dotenv-rails"
 
   gem "factory_bot_rails"
-  gem "rspec-rails", ">= 4.0.0.beta2"
+  gem "rspec-rails", ">= 6.0"
   gem "shoulda-matchers"
 
   gem "rubocop"
@@ -66,8 +61,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
-  gem "listen"
-
   # Run stuff automatically
   gem "guard"
   gem "guard-livereload"
