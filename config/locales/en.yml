@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  billable_items:
+    index:
+      description: "Description"
+      invoiced_at: "Invoiced"
+      occurred_at: "Date"
+      quantity: "Qty / Unit"
+      source: "Source"
+    row:
+      confirm_delete: "Remove this billable item? It will be re-imported on the next scheduled run."
+      delete: "Remove"
   hello: "Hello world"

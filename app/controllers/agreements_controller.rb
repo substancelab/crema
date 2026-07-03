@@ -66,17 +66,18 @@ class AgreementsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def agreement_params
-    params.
-      expect(
-        :agreement => [:customer_id,
-                       :discount_percentage,
-                       :service_id,
-                       :project_name,
-                       :price,
-                       :unit,
-                       :ends_on,
-                       :state,
-                       :purchase_order_number]
-      )
+    params.expect(
+      :agreement => [
+        :customer_id,
+        :discount_percentage,
+        :service_id,
+        :project_name,
+        :price,
+        :unit,
+        :ends_on,
+        :state,
+        :purchase_order_number,
+      ]
+    )
   end
 end

@@ -36,3 +36,6 @@ p
 p
   strong Purchase order number:
   = @agreement.purchase_order_number
+
+p
+  = link_to "Billable Items (#{@agreement.billable_items.count})", agreement_billable_items_path(@agreement)

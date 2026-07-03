@@ -1,0 +1,20 @@
+tr
+  td.py-4.pl-4.pr-3.text-sm.text-gray-900.sm:pl-6
+    - if item.occurred_at
+      = I18n.localize(item.occurred_at.to_date)
+  td.px-3.py-4.text-sm.text-gray-500
+    = item.description
+  td.px-3.py-4.text-sm.text-gray-500
+    = item.source
+  td.px-3.py-4.text-sm.text-right.text-gray-900
+    = "#{item.quantity} #{item.unit}"
+  td.px-3.py-4.text-sm.text-gray-500
+    - if item.invoiced_at
+      = I18n.localize(item.invoiced_at.to_date)
+    - else
+      span.text-gray-400 —
+  td.relative.py-4.pl-3.pr-4.text-right.text-sm.font-medium.sm:pr-6
+    - unless item.invoiced_at
+      = link_to translate(".delete"), agreement_billable_item_path(@agreement, item), \
+          :data => {:turbo_method => :delete, :turbo_confirm => translate(".confirm_delete")}, \
+          :class => "text-red-600 hover:text-red-900"

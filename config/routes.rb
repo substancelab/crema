@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resource :dashboard, :only => [:show]
 
-  resources :agreements
+  resources :agreements do
+    resources :billable_items, :only => [:index, :destroy]
+  end
   resources :customers
   resources :leads, :only => [:index]
   resources :services

@@ -8,6 +8,7 @@ class Agreement < ApplicationRecord
 
   belongs_to :customer
   belongs_to :service
+  has_many :billable_items, :dependent => :destroy
 
   validates :discount_percentage, :numericality => {
     :allow_nil => true,
