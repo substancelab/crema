@@ -14,7 +14,6 @@ class TimeEntryRepository
       :project_name,
       :save,
       :service_id,
-      :service_name,
       :to => :mite_resource
 
     def initialize(mite_resource)

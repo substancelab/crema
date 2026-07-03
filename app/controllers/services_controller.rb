@@ -56,13 +56,12 @@ class ServicesController < ApplicationController
   private
 
   def find_service
-    Service.find(params[:id])
+    Service.find(params.expect(:id))
   end
 
   # Only allow a trusted parameter "white list" through.
   def service_params
     params.
-      require(:service).
-      permit(:economic_product_number, :name, :unit, :price)
+      expect(:service => [:economic_product_number, :name, :unit, :price])
   end
 end

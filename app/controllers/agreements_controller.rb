@@ -61,23 +61,22 @@ class AgreementsController < ApplicationController
   private
 
   def find_agreement
-    Agreement.find(params[:id])
+    Agreement.find(params.expect(:id))
   end
 
   # Only allow a trusted parameter "white list" through.
   def agreement_params
     params.
-      require(:agreement).
-      permit(
-        :customer_id,
-        :discount_percentage,
-        :service_id,
-        :project_name,
-        :price,
-        :unit,
-        :ends_on,
-        :state,
-        :purchase_order_number
+      expect(
+        :agreement => [:customer_id,
+                       :discount_percentage,
+                       :service_id,
+                       :project_name,
+                       :price,
+                       :unit,
+                       :ends_on,
+                       :state,
+                       :purchase_order_number]
       )
   end
 end
