@@ -18,15 +18,15 @@ RSpec.describe BillableItems::FromMite do
     )
   end
 
+  let(:repository) { instance_double(TimeEntryRepository) }
+
   before do
-    allow_any_instance_of(TimeEntryRepository)
-      .to receive(:billable_hours_for_project)
-      .with(agreement, period)
-      .and_return([time_entry])
+    allow(TimeEntryRepository).to receive(:new).and_return(repository)
+    allow(repository).to receive(:billable_hours_for_project).with(agreement, period).and_return([time_entry])
   end
 
   describe "#call" do
-    it "creates a BillableItem from the time entry" do
+    it "creates a BillableItem from the time entry", :aggregate_failures do
       expect { service.call }.to change(BillableItem, :count).by(1)
 
       item = BillableItem.last
@@ -46,11 +46,11 @@ RSpec.describe BillableItems::FromMite do
 
     it "skips entries that have already been invoiced" do
       create(:billable_item,
-        :agreement => agreement,
-        :source => "Mite",
-        :source_key => "42",
-        :description => "Old description",
-        :invoiced_at => 1.day.ago)
+             :agreement => agreement,
+             :source => "Mite",
+             :source_key => "42",
+             :description => "Old description",
+             :invoiced_at => 1.day.ago)
 
       service.call
 

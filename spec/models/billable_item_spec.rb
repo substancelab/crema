@@ -12,7 +12,7 @@ RSpec.describe BillableItem, :type => :model do
   end
 
   describe ".uninvoiced" do
-    it "returns items without an invoiced_at" do
+    it "returns items without an invoiced_at", :aggregate_failures do
       invoiced = create(:billable_item, :invoiced_at => 1.day.ago)
       uninvoiced = create(:billable_item, :invoiced_at => nil)
 

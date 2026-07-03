@@ -13,15 +13,16 @@ RSpec.describe BillableItems::FromFloat do
       {
         "task_id" => 1001,
         "hours" => 8.0,
-        "task_days" => ["2026-06-01", "2026-06-08"]
-      }
+        "task_days" => ["2026-06-01", "2026-06-08"],
+      },
     ]
   end
 
+  let(:float_client) { instance_double(FloatClient) }
+
   before do
-    allow_any_instance_of(FloatClient)
-      .to receive(:tasks_in_date_range)
-      .and_return(tasks)
+    allow(FloatClient).to receive(:new).and_return(float_client)
+    allow(float_client).to receive(:tasks_in_date_range).and_return(tasks)
   end
 
   describe "#call" do
@@ -49,11 +50,11 @@ RSpec.describe BillableItems::FromFloat do
 
     it "skips task days that have already been invoiced" do
       create(:billable_item,
-        :agreement => agreement,
-        :source => "Float",
-        :source_key => "1001_2026-06-01",
-        :invoiced_at => 1.day.ago,
-        :quantity => 99)
+             :agreement => agreement,
+             :source => "Float",
+             :source_key => "1001_2026-06-01",
+             :invoiced_at => 1.day.ago,
+             :quantity => 99)
 
       service.call
 

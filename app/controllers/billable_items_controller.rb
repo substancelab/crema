@@ -15,10 +15,10 @@ class BillableItemsController < ApplicationController
   private
 
   def find_agreement
-    @agreement = Agreement.find(params[:agreement_id])
+    @agreement = Agreement.find(params.expect(:agreement_id))
   end
 
   def find_billable_item
-    @agreement.billable_items.find(params[:id])
+    @agreement.billable_items.find(params.expect(:id))
   end
 end
