@@ -37,5 +37,14 @@ p
   strong Purchase order number:
   = @agreement.purchase_order_number
 
+- if @agreement.mite_reference
+  p
+    strong = Agreement.human_attribute_name(:mite_reference)
+    = ": #{@agreement.mite_reference}"
+- if @agreement.float_project_id
+  p
+    strong = Agreement.human_attribute_name(:float_project_id)
+    = ": #{@agreement.float_project_id}"
+
 p
   = link_to "Billable Items (#{@agreement.billable_items.count})", agreement_billable_items_path(@agreement)

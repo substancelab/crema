@@ -70,13 +70,15 @@ class AgreementsController < ApplicationController
       :agreement => [
         :customer_id,
         :discount_percentage,
-        :service_id,
-        :project_name,
-        :price,
-        :unit,
         :ends_on,
-        :state,
+        :float_project_id,
+        :mite_reference,
+        :price,
+        :project_name,
         :purchase_order_number,
+        :service_id,
+        :state,
+        :unit,
       ]
     )
   end
