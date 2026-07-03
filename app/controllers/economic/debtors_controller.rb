@@ -3,7 +3,7 @@
 module Economic
   class DebtorsController < ApplicationController
     def create
-      customer = Customer.find(params[:customer_id])
+      customer = Customer.find(params.expect(:customer_id))
       CreateEconomicDebtorJob.perform_later(customer.id)
       redirect_to(customer)
     end

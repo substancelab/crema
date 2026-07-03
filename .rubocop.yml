@@ -1,11 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
 plugins:
+  - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
-
-require:
-  - 'rubocop-performance'
 
 AllCops:
   DisplayCopNames: true

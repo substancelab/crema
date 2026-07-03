@@ -57,21 +57,20 @@ class CustomersController < ApplicationController
   private
 
   def find_customer
-    Customer.find(params[:id])
+    Customer.find(params.expect(:id))
   end
 
   # Only allow a trusted parameter "white list" through.
   def customer_params
     params.
-      require(:customer).
-      permit(
-        :address,
-        :company_name,
-        :economic_debtor_number,
-        :invoice_email,
-        :phone,
-        :tax_id,
-        :tax_region
+      expect(
+        :customer => [:address,
+                      :company_name,
+                      :economic_debtor_number,
+                      :invoice_email,
+                      :phone,
+                      :tax_id,
+                      :tax_region]
       )
   end
 end
