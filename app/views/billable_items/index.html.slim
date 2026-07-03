@@ -9,25 +9,24 @@
     ))
 
 .mt-6.max-w-8xl.mx-auto.sm:px-6.lg:px-8
-  .flex.flex-col
-    .overflow-x-auto
-      .inline-block.min-w-full.py-2.align-middle
-        .overflow-hidden.shadow.ring-1.ring-black.ring-opacity-5.md:rounded-lg
-          table.min-w-full.divide-y.divide-gray-300
-            thead.bg-gray-50
-              tr
-                th.py-3.pl-4.pr-3.text-left.text-sm.font-semibold.text-gray-900.sm:pl-6
-                  = translate(".occurred_at")
-                th.px-3.py-3.text-left.text-sm.font-semibold.text-gray-900
-                  = translate(".description")
-                th.px-3.py-3.text-left.text-sm.font-semibold.text-gray-900
-                  = translate(".source")
-                th.px-3.py-3.text-right.text-sm.font-semibold.text-gray-900
-                  = translate(".quantity")
-                th.px-3.py-3.text-left.text-sm.font-semibold.text-gray-900
-                  = translate(".invoiced_at")
-                th.relative.py-3.pl-3.pr-4.sm:pr-6
+  .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+    .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+      .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+        table.min-w-full.divide-y.divide-gray-200
+          thead
+            tr
+              th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+                = translate(".occurred_at")
+              th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+                = translate(".description")
+              th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+                = translate(".source")
+              th.px-6.py-3.bg-gray-50.text-right.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+                = translate(".quantity")
+              th.px-6.py-3.bg-gray-50.text-left.text-xs.leading-4.font-medium.text-gray-500.uppercase.tracking-wider
+                = translate(".invoiced_at")
+              th.px-6.py-3.bg-gray-50
 
-            tbody.divide-y.divide-gray-200.bg-white
-              - @billable_items.each do |item|
-                = render("billable_items/row", :item => item)
+          tbody.bg-white.divide-y.divide-gray-200
+            - @billable_items.each do |item|
+              = render("billable_items/row", :item => item)
