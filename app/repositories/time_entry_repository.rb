@@ -24,6 +24,10 @@ class TimeEntryRepository
       @mite_resource.attributes["service_name"] || "[Unknown service]"
     end
 
+    def source_key
+      id.to_s
+    end
+
     def serializable_hash
       {
         :id => id,
@@ -70,6 +74,18 @@ class TimeEntryRepository
       :billable => true,
       :from => period.begin,
       :group_by => "service",
+      :locked => false,
+      :project_id => project.mite_reference,
+      :to => period.end
+    )
+  end
+
+  # Returns all unlocked billable time entries for a project in the given period,
+  # one record per time entry (not grouped)
+  def billable_hours_for_project(project, period)
+    mite_time_entries(
+      :billable => true,
+      :from => period.begin,
       :locked => false,
       :project_id => project.mite_reference,
       :to => period.end

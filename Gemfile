@@ -18,6 +18,7 @@ gem "sqlite3"
 
 # App serving
 gem "puma"
+gem "whenever"
 
 gem "rails-i18n"
 
