@@ -6,7 +6,8 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.4.13
+      # Ruby 3.4.13 isn't published as a CircleCI image yet; use 3.4.12 until it is, then bump to 3.4.13.
+      - image: cimg/ruby:3.4.12
         environment:
         - PG_HOST=localhost
         - PG_USER=ubuntu
